@@ -1449,7 +1449,7 @@ console.log('abdo 3');
                                                   styleClass="h-100"/>
                                     </af:panelGroupLayout>
                                     <af:panelGroupLayout id="pt_pgl12" inlineStyle="height: 40px;">
-                                        <af:image source="/images   /2030logo.svg" shortDesc="logo" id="pt_i02"
+                                        <af:image source="/images/logo.svg" shortDesc="logo" id="pt_i02"
                                                   styleClass="h-100 bootstrapmx-4"/>
                                     </af:panelGroupLayout>
                                     <!--<af:panelGroupLayout  styleClass="nav-link menu-main-user mx-2 d-flex align-items-center" id="s">
