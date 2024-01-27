@@ -1,0 +1,1541 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <af:pageTemplateDef var="attrs" definition="private">
+        <af:xmlContent>
+            <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+                <description/>
+                <display-name>templateDef2</display-name>
+                <facet>
+                    <facet-name>main</facet-name>
+                </facet>
+            </component>
+        </af:xmlContent>
+        <meta name="viewport" content="width=device-width, user-scalable=no" xmlns="http://www.w3.org/1999/xhtml"/>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;600" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,500"
+              rel="stylesheet"/>
+        <!-- CSS only -->
+        <af:resource type="css" source="/css/bootstrap.min.css"/>
+        <af:resource type="css" source="/css/icofont.min.css"/>
+        <af:resource type="css" source="/css/themify-icons.css"/>
+        <af:resource type="javascript">
+          function savePopup() {
+              var popup = AdfPage.PAGE.findComponent("page1:savePopup");
+              popup.show();
+          }
+
+          function showPopupsss(event) {
+              event.cancel();
+              var source = event.getSource();
+              var popup = source.findComponent("popup");
+              var spacer = source.findComponent("s1");
+
+              popup.show( {
+                  align : "after_end", alignId : spacer.getClientId()
+              });
+          }
+
+          function showDeletePopup() {
+              var popup = AdfPage.PAGE.findComponent("page1:deletePopup");
+              popup.show();
+          }
+
+          function collapsPS(actionEvent) {
+              var srsId = actionEvent.getSource();
+              //var  pro = srsId.getProperty("psClientId");
+              var pro = document.querySelectorAll('div[id$="mainPS"]')[0];
+              var comp = AdfPage.PAGE.findComponentByAbsoluteId('pt1:mainPS');
+              if (comp != null) {
+                  if (comp.getProperty("collapsed") == false) {
+                      comp.setProperty("collapsed", true);
+                  }
+                  else {
+                      comp.setProperty("collapsed", false);
+                  }
+              }
+          }
+
+          window.addEventListener('resize', function () {
+              var comp = AdfPage.PAGE.findComponentByAbsoluteId('pt1:mainPS');
+              if (window.innerWidth &gt; 700) {
+                  comp.setProperty("collapsed", false);
+              }
+              else {
+                  comp.setProperty("collapsed", true);
+              }
+          });
+        </af:resource>
+        <af:resource type="javascript"
+                     source="https://www.google.com/jsapi?key=AIzaSyA0QeVM4lm2CO7-SGJsYreBMyWWG7NGAr0"/>
+        <af:resource type="javascript">
+          google.load("maps", "3", 
+          {
+              other_params : "sensor=false"
+          });
+          // Call this function when the page has been loaded
+          var map;
+          var marker = null;
+
+          function createMarker(latlng, name, html) {
+              var contentString = html;
+              marker = new google.maps.Marker( {
+                  position : latlng, map : map
+              });
+              //------------------
+              //  AdfPage.PAGE.findComponent("lat").setValue(marker.position.lat()); 
+              //    AdfPage.PAGE.findComponent("lng").setValue(marker.position.lng()); 
+              //-------------
+              $("input[name$=lat]").val(marker.position.lat());
+              $("input[name$=lng]").val(marker.position.lng());
+              //document.getElementById("pt1:pt_region0:2:lat::content").value = marker.position.lat(); 
+              // document.getElementById("pt1:pt_region0:2:lng::content").value = marker.position.lng(); 
+              return marker;
+          }
+
+          function initialize2(pointsString) {
+
+              //map.setCenter(new google.maps.LatLng(59.32522,18.07002), 13);
+              var points = pointsString.split(" ");
+              var markers = [];
+              var latlngs = [];
+              var latt;
+              var langg;
+              for (i = 0;points.length - 1 &gt; i;i++) {
+                  latt = points[i];
+                  langg = points[i + 1];
+                  latlngs[i] = new google.maps.LatLng(points[i], points[i + 1]);
+                  markers[i] = new google.maps.Marker( {
+                      position : latlngs[i], map : map
+                  });
+                  i = i + 1;
+              }
+              var mapOptions = {
+                  center : new google.maps.LatLng(latt, langg), zoom : 18, mapTypeId : google.maps.MapTypeId.HYBRID
+              };
+              map = new google.maps.Map(document.getElementById("mapdiv2"), mapOptions);
+
+          }
+
+          function initialize(pointsString) {
+
+              //map.setCenter(new google.maps.LatLng(59.32522,18.07002), 13);
+              var mapOptions = {
+                  center : new google.maps.LatLng(27.5166667, 41.6833333), zoom : 10, mapTypeId : google.maps.MapTypeId.HYBRID
+              };
+              map = new google.maps.Map(document.getElementById("mapdiv"), mapOptions);
+
+              var latLng = new google.maps.LatLng(27.511620952131192, 41.709938049316406);
+              google.maps.event.addListener(map, 'click', function (event) {
+                  //call function to create marker
+                  if (marker) {
+                      marker.setMap(null);
+                      marker = null;
+                  }
+                  marker = createMarker(event.latLng, "name", "Location" + event.latLng);
+              });
+
+              var points = pointsString.split(" ");
+              var markers = [];
+              var latlngs = [];
+              for (i = 0;points.length - 1 &gt; i;i++) {
+                  latlngs[i] = new google.maps.LatLng(points[i], points[i + 1]);
+                  markers[i] = new google.maps.Marker( {
+                      position : latlngs[i], map : map
+                  });
+                  i = i + 1;
+              }
+
+          }
+        </af:resource>
+        <af:resource type="javascript">
+          function showPopup(event) {
+              event.cancel();
+              var source = event.getSource();
+              var popupId = "popup";
+              var popup = AdfPage.PAGE.findComponentByAbsoluteId(popupId);
+
+              if (!popup.isPopupVisible()) {
+                  var hints = {
+                  };
+                  hints[AdfRichPopup.HINT_LAUNCH_ID] = source.getClientId();
+                  hints[AdfRichPopup.HINT_ALIGN_ID] = source.getClientId();
+                  hints[AdfRichPopup.HINT_ALIGN] = AdfRichPopup.ALIGN_AFTER_START;
+
+                  popup.show(hints);
+              }
+          }
+
+          function loadmap() {
+              if (map) {
+
+              }
+              else {
+                  initialize();
+              }
+
+          }
+
+          function disableField(actionEvent) {
+
+              var nameInputText = actionEvent.getSource().findComponent("nameFld");
+              // nameInputText.setProperty("disabled", true);  
+              nameInputText.setProperty("value", marker.position.lat());
+
+              //The following line is for partial refresh, in this case   
+              //its taken care by framework  
+              //AdfPage.PAGE.addPartialTargets(nameInputText);  
+              actionEvent.cancel();
+          }
+
+          function addMarker(location) {
+              marker = new google.maps.Marker( {
+                  position : location, map : map
+              });
+          }
+
+          function enableField(actionEvent) {
+
+              //      map.setCenter(new google.maps.LatLng(59.32522,18.07002), 13);    
+              // var myLatlng =  new google.maps.LatLng(59.327383, 18.06747);
+              //addMarker(myLatlng);
+              AdfPage.PAGE.findComponent("nameFld").setValue(marker.position.lat());
+              actionEvent.cancel();
+          }
+        </af:resource>
+        <af:resource source="/js/jquery.js" type="javascript"/>
+        <af:resource source="/js/jquery.min.js" type="javascript"/>
+        <af:resource type="javascript">
+          jQuery(document).ready(function () {
+              jQuery('._newSlider').uiSlider( {
+                  createBullets : true, createArrows : false, slideHasItems : true, time : 5000, sliderWrapperClass : "_sliderWrap", prevClass : "_prev", nextClass : "_next", itemsInSlide : 4, bulletsWrapperClass : "_bulletsWrapper", bulletClass : "_bullet ", slideClass : "_slide", counterVarName : "counter1", goToLeftVarNameVarName : "goToLeftVarName", mouseHoverVarName : "mouseHoverVarName", tempHolderVarName : "tempHolderVarName", numberOfSlidesVarName : "numberOfSlidesVarName", sliderEntireWidthVarName : "sliderEntireWidthVarName", indentationVarName : "indentationVarName", slideWidthVarName : "slideWidthVarName"
+              });
+              jQuery('.hail-HijriCalendar').append(writeIslamicDate())
+
+          });
+
+          function datepick(event) {
+              var comp = event.getSource();
+              var InputID = comp.getProperty("b1ClientId");
+              console.log(InputID);
+              hjDatePick(event, InputID);
+          }
+
+          function datepick2(event) {
+              hjDatePick(event, "hjDate2");
+          }
+
+          function datepick3(event) {
+              hjDatePick(event, "hjDate3");
+          }
+
+          function hjDatePick(event, hjDateId) {
+              $("input[name*=" + hjDateId + "]").datepicker( {
+                  onSelect : function sayHello(date, actionEvent) {
+                      var buttonComponent = event.getSource();
+                      console.log("Fun DatePick buttonComponent" + " " + buttonComponent);
+                      //console.log(buttonComponent["_clientId"]); 
+                      var abstractCompID = buttonComponent["_clientId"];
+                      var InputID = abstractCompID.substring(9, 21);
+                      console.log("Fun DatePick" + " " + InputID);
+                      // alert(buttonComponent);
+                      var greetingComponent = buttonComponent.findComponent(InputID);
+                      greetingComponent.setValue(date);
+                  },
+                  dateFormat : 'dd-mm-yy', regional : 'ar', showOn : "button", buttonImage : "../images/calendar.gif", buttonImageOnly : true, beforeShow : function (input, inst) {
+                      inst.dpDiv.css( {
+                          marginTop :  - input.offsetHeight + 'px', marginRight : input.offsetWidth + 'px'
+                      });
+                  }
+              });
+              $("input[name=" + hjDateId + "]").css("color", "blue");
+          }
+        </af:resource>
+        <af:resource type="javascript">
+          function enforcePreventUserInput(evt) {
+              var popup = AdfPage.PAGE.findComponentByAbsoluteId('page1:glassPane');
+              if (popup != null) {
+                  AdfPage.PAGE.addBusyStateListener(popup, handleBusyState);
+                  evt.preventUserInput();
+              }
+          }
+
+          function handleBusyState(evt) {
+              var popup = AdfPage.PAGE.findComponentByAbsoluteId('page1:glassPane');
+              if (popup != null) {
+                  if (evt.isBusy()) {
+                      popup.show();
+                  }
+                  else if (popup.isPopupVisible()) {
+                      popup.hide();
+                      AdfPage.PAGE.removeBusyStateListener(popup, handleBusyState);
+                  }
+              }
+          }
+
+          function openPopup() {
+              var popup = AdfPage.PAGE.findComponent("pt1:closePopup");
+              popup.show();
+          }
+
+          function closePopup(evt) {
+              var popup = AdfPage.PAGE.findComponentByAbsoluteId('page1:closePopup');
+              if (popup != null) {
+                  popup.hide();
+                  AdfPage.PAGE.removeBusyStateListener(popup, closePopup);
+              }
+          }
+
+          function openPopupMultipleRow() {
+              var popup = AdfPage.PAGE.findComponent("page1:closePopupMultipleRow");
+              popup.show();
+          }
+
+          function openHelpPopup() {
+              var popup = AdfPage.PAGE.findComponent("page1:helpPopup");
+              popup.show();
+          }
+
+          function openSaveChangesPopup() {
+              var popup = AdfPage.PAGE.findComponent("page1:confirmPopup");
+              popup.show();
+          }
+
+          function newWindow() {
+              document.getElementById("form1").target = "_blank;targetfeatures=toolbar=no location=no directories=no menubar=no";
+          }
+
+          function selfWindow() {
+              if (document.getElementById("form1")) {
+                  document.getElementById("form1").target = "_self";
+              }
+          }
+
+          function showGlasspane(event) {
+              event.preventUserInput();
+          }
+
+          window.onfocus = selfWindow;
+          window.onfocus = selfWindow;
+        </af:resource>
+        <!--<af:resource 
+     type="javascript">
+     console.log('abdo 1');
+     function showMap(coordinatesPoint) {
+  if (coordinatesPoint) {
+    require([
+      "esri/layers/GraphicsLayer",
+      "esri/Graphic",
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/PopupTemplate",
+      "esri/layers/FeatureLayer",
+      "esri/widgets/Legend",
+    ], function (
+      GraphicsLayer,
+      Graphic,
+      Map,
+      MapView,
+      PopupTemplate,
+      FeatureLayer,
+      Legend
+    ) {
+      const investmentLands = new FeatureLayer({
+        url: "https://services3.arcgis.com/U26uBjSD32d7xvm2/arcgis/rest/services/Investment_Map1/FeatureServer/5",
+      });
+      // splitting the input
+      var longInput = coordinatesPoint.split(",")[0];
+      var latInput = coordinatesPoint.split(",")[1];
+
+      var graphic = new Graphic({
+        geometry: {
+          type: "point",
+          x: longInput,
+          y: latInput,
+        },
+        symbol: {
+          type: "web-style",
+          name: "tear-pin-2",
+          styleName: "Esri2DPointSymbolsStyle",
+        },
+      });
+
+      var map = new Map({
+        basemap: "hybrid",
+      });
+
+      var view = new MapView({
+        container: "viewDiv",
+        map: map,
+      });
+
+      var graphicsLayer = new GraphicsLayer();
+      graphicsLayer.graphics.push(graphic);
+
+      map.addMany([investmentLands, graphicsLayer]);
+
+      graphicsLayer.on("layerview-create", function (e) {
+        view
+          .goTo(
+            {
+              center: [graphic.geometry.longitude, graphic.geometry.latitude],
+              zoom: 10,
+            },
+            {
+              duration: 3000,
+            }
+          )
+          .catch(function (error) {
+            if (error.name != "AbortError") {
+              console.error(error);
+            }
+          });
+      });
+
+      view.when(() => {
+        const featureLayer = map.layers.getItemAt(0);
+
+        const legend = new Legend({
+          view: view,
+          layerInfos: [
+            {
+              layer: featureLayer,
+              title: "أراضي الاستثمار",
+            },
+          ],
+        });
+
+        view.ui.add(legend, "bottom-right");
+      });
+    });
+  } else {
+    require([
+      "esri/layers/GraphicsLayer",
+      "esri/Graphic",
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/PopupTemplate",
+      "esri/layers/FeatureLayer",
+      "esri/widgets/Legend",
+    ], function (
+      GraphicsLayer,
+      Graphic,
+      Map,
+      MapView,
+      PopupTemplate,
+      FeatureLayer,
+      Legend
+    ) {
+      const investmentLands = new FeatureLayer({
+        url: "https://services3.arcgis.com/U26uBjSD32d7xvm2/arcgis/rest/services/Investment_Map1/FeatureServer/5",
+      });
+
+      var map2 = new Map({
+        basemap: "hybrid",
+      });
+
+      var view2 = new MapView({
+        container: "viewDiv",
+        map: map2,
+      });
+      map2.add(investmentLands);
+
+      investmentLands.on("layerview-create", function (e) {
+        view2
+          .goTo(
+            {
+              center: [41.70229077166609, 27.52580151668012],
+              zoom: 10,
+            },
+            {
+              duration: 3000,
+            }
+          )
+          .catch(function (error) {
+            if (error.name != "AbortError") {
+              console.error(error);
+            }
+          });
+      });
+
+      view2.on("click", function (evt) {
+        var graphic2 = new Graphic({
+          geometry: {
+            type: "point",
+            x: evt.mapPoint.x,
+            y: evt.mapPoint.y,
+            spatialReference: view2.spatialReference,
+          },
+          symbol: {
+            type: "web-style",
+            name: "push-pin-1",
+            styleName: "Esri2DPointSymbolsStyle",
+          },
+        });
+        view2.graphics.removeAll();
+        view2.graphics.add(graphic2);
+
+        var adfLong = evt.mapPoint.x;
+        var adfLat = evt.mapPoint.y;
+        $("input[name$=lat]").val(adfLat);
+        $("input[name$=lng]").val(adfLong);
+      });
+
+      view2.when(() => {
+        const featureLayer = map2.layers.getItemAt(0);
+
+        const legend = new Legend({
+          view: view2,
+          layerInfos: [
+            {
+              layer: featureLayer,
+              title: "أراضي الاستثمار",
+            },
+          ],
+        });
+
+        view2.ui.add(legend, "bottom-right");
+      });
+    });
+  }
+}
+
+console.log('abdo 3');
+    </af:resource>-->
+        <!--abdo-->
+        <af:resource source="/resources/js/template.js" type="javascript"/>
+        <af:resource type="javascript" source="/js/jquery.growl.js"/>
+        <af:resource type="javascript" source="/resources/calender/jquery-1.10.2.js"/>
+        <af:resource type="javascript" source="/resources/js/jquery.noty.packaged.js"/>
+        <af:resource type="javascript" source="/resources/calender/jquery.plugin.min.js"/>
+        <af:resource type="javascript" source="/resources/calender/jquery.calendars.js"/>
+        <af:resource type="javascript" source="/resources/calender/jquery.calendars.picker.js"/>
+        <af:resource type="javascript" source="/resources/calender/jquery.calendars.picker-ar.js"/>
+        <af:resource type="javascript" source="/resources/calender/jquery.calendars.plus.min.js"/>
+        <af:resource type="javascript" source="/resources/calender/jquery.calendars.ummalqura.min.js"/>
+        <af:resource type="javascript" source="/resources/calender/jquery.calendars.ummalqura-ar.js"/>
+        <af:resource type="javascript" source="/resources/calender/calenderclass.js"/>
+        <af:resource type="css" source="/resources/calender/jquery.calendars.picker.css"/>
+        <af:resource type="javascript" source="/resources/js/template.js"/>
+        <af:resource type="javascript" source="/skins/aas/js/jquery-1.11.1.min.js"/>
+        <af:resource type="javascript" source="/skins/aas/js/jquery-migrate-1.2.1.js"/>
+        <af:resource type="javascript" source="/skins/aas/js/jquery.cookie.js"/>
+        <af:resource type="javascript" source="/skins/aas/js/cookie.js"/>
+        <af:resource type="javascript" source="scripts/jquery.ui.core.js"/>
+        <af:resource type="javascript" source="scripts/calendar.js"/>
+        <af:resource type="javascript" source="scripts/jquery.ui.datepicker-cc.js"/>
+        <af:resource type="javascript" source="scripts/jquery.ui.datepicker-cc-ar.js"/>
+        <af:resource type="css" source="styles/jquery-ui-1.8.14.css"/>
+        <af:resource type="javascript" source="/skins/aas/js/jquery.easing.1.3.js"/>
+        <af:resource type="javascript" source="/skins/aas/js/selectivizr-min.js"/>
+        <af:resource type="javascript" source="/skins/aas/js/hslider.js"/>
+        <af:resource type="javascript" source="/skins/aas/js/hijricalendar.js"/>
+        <af:resource type="css" source="/resources/css/animate.css"/>
+        <af:resource type="javascript" source="/resources/js/main.js?v=3ww4"/>
+        <af:resource type="javascript"
+                     source="https://www.google.com/jsapi?key=AIzaSyA0QeVM4lm2CO7-SGJsYreBMyWWG7NGAr0"/>
+        <af:resource type="javascript">
+          google.load("maps", "3", 
+          {
+              other_params : "sensor=false"
+          });
+          // Call this function when the page has been loaded
+          var map;
+          var marker = null;
+
+          function createMarker(latlng, name, html) {
+              var contentString = html;
+              marker = new google.maps.Marker( {
+                  position : latlng, map : map
+              });
+              //------------------
+              //  AdfPage.PAGE.findComponent("lat").setValue(marker.position.lat()); 
+              //    AdfPage.PAGE.findComponent("lng").setValue(marker.position.lng()); 
+              //-------------
+              $("input[name$=lat]").val(marker.position.lat());
+              $("input[name$=lng]").val(marker.position.lng());
+              //document.getElementById("pt1:pt_region0:2:lat::content").value = marker.position.lat(); 
+              // document.getElementById("pt1:pt_region0:2:lng::content").value = marker.position.lng(); 
+              return marker;
+          }
+
+          function initialize2(pointsString) {
+
+              //map.setCenter(new google.maps.LatLng(59.32522,18.07002), 13);
+              var points = pointsString.split(" ");
+              var markers = [];
+              var latlngs = [];
+              var latt;
+              var langg;
+              for (i = 0;points.length - 1 &gt; i;i++) {
+                  latt = points[i];
+                  langg = points[i + 1];
+                  latlngs[i] = new google.maps.LatLng(points[i], points[i + 1]);
+                  markers[i] = new google.maps.Marker( {
+                      position : latlngs[i], map : map
+                  });
+                  i = i + 1;
+              }
+              var mapOptions = {
+                  center : new google.maps.LatLng(latt, langg), zoom : 18, mapTypeId : google.maps.MapTypeId.HYBRID
+              };
+              map = new google.maps.Map(document.getElementById("mapdiv2"), mapOptions);
+
+          }
+
+          function initialize(pointsString) {
+
+              //map.setCenter(new google.maps.LatLng(59.32522,18.07002), 13);
+              var mapOptions = {
+                  center : new google.maps.LatLng(27.5166667, 41.6833333), zoom : 10, mapTypeId : google.maps.MapTypeId.HYBRID
+              };
+              map = new google.maps.Map(document.getElementById("mapdiv"), mapOptions);
+
+              var latLng = new google.maps.LatLng(27.511620952131192, 41.709938049316406);
+              google.maps.event.addListener(map, 'click', function (event) {
+                  //call function to create marker
+                  if (marker) {
+                      marker.setMap(null);
+                      marker = null;
+                  }
+                  marker = createMarker(event.latLng, "name", "Location" + event.latLng);
+              });
+
+              var points = pointsString.split(" ");
+              var markers = [];
+              var latlngs = [];
+              for (i = 0;points.length - 1 &gt; i;i++) {
+                  latlngs[i] = new google.maps.LatLng(points[i], points[i + 1]);
+                  markers[i] = new google.maps.Marker( {
+                      position : latlngs[i], map : map
+                  });
+                  i = i + 1;
+              }
+
+          }
+        </af:resource>
+        <af:resource type="javascript">
+          jQuery(document).ready(function () {
+              jQuery('._newSlider').uiSlider( {
+                  createBullets : true, createArrows : false, slideHasItems : true, time : 5000, sliderWrapperClass : "_sliderWrap", prevClass : "_prev", nextClass : "_next", itemsInSlide : 4, bulletsWrapperClass : "_bulletsWrapper", bulletClass : "_bullet ", slideClass : "_slide", counterVarName : "counter1", goToLeftVarNameVarName : "goToLeftVarName", mouseHoverVarName : "mouseHoverVarName", tempHolderVarName : "tempHolderVarName", numberOfSlidesVarName : "numberOfSlidesVarName", sliderEntireWidthVarName : "sliderEntireWidthVarName", indentationVarName : "indentationVarName", slideWidthVarName : "slideWidthVarName"
+              });
+              jQuery('.hail-HijriCalendar').append(writeIslamicDate())
+
+          });
+
+          function datepick(event) {
+              var comp = event.getSource();
+              var InputID = comp.getProperty("b1ClientId");
+              console.log(InputID);
+              hjDatePick(event, InputID);
+          }
+
+          function datepick2(event) {
+              hjDatePick(event, "hjDate2");
+          }
+
+          function datepick3(event) {
+              hjDatePick(event, "hjDate3");
+          }
+
+          function hjDatePick(event, hjDateId) {
+              $("input[name*=" + hjDateId + "]").datepicker( {
+                  onSelect : function sayHello(date, actionEvent) {
+                      var buttonComponent = event.getSource();
+                      console.log("Fun DatePick buttonComponent" + " " + buttonComponent);
+                      //console.log(buttonComponent["_clientId"]); 
+                      var abstractCompID = buttonComponent["_clientId"];
+                      var InputID = abstractCompID.substring(9, 21);
+                      console.log("Fun DatePick" + " " + InputID);
+                      // alert(buttonComponent);
+                      var greetingComponent = buttonComponent.findComponent(InputID);
+                      greetingComponent.setValue(date);
+                  },
+                  dateFormat : 'dd-mm-yy', regional : 'ar', showOn : "button", buttonImage : "../images/calendar.gif", buttonImageOnly : true, beforeShow : function (input, inst) {
+                      inst.dpDiv.css( {
+                          marginTop :  - input.offsetHeight + 'px', marginRight : input.offsetWidth + 'px'
+                      });
+                  }
+              });
+              $("input[name=" + hjDateId + "]").css("color", "blue");
+          }
+        </af:resource>
+        <af:resource source="https://js.arcgis.com/4.25/esri/themes/light/main.css" type="css"/>
+        <af:resource type="javascript" source="https://js.arcgis.com/4.25/"/>
+        <af:resource source="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" type="javascript"/>
+        <af:resource source="/resources/js/app.js" type="javascript"/>
+        <af:panelSplitter orientation="horizontal" splitterPosition="250" id="mainPS" styleClass="mainPS">
+            <f:facet name="first">
+                <af:panelGroupLayout id="pt_pgl8" styleClass="side-menu">
+                    <div id="loader" class="loader">
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                    <af:panelGroupLayout id="pt_pgl9" styleClass="head">
+                        <af:panelGroupLayout id="pt_pgl10" styleClass="logo">
+                            <af:image source="/assets/images/logo.svg" shortDesc="logo" id="pt_i1"/>
+                        </af:panelGroupLayout>
+                    </af:panelGroupLayout>
+                    <af:panelGroupLayout id="pt_pgl7" styleClass="menu">
+                        <af:panelAccordion discloseMany="false" id="pt_pa1">
+                            <af:showDetailItem id="pane1" text="Panel Label 1" icon="/assets/images/land.png">
+                                <af:link text="link 1" id="pt_l7"/>
+                                <af:link text="link 3" id="pt_l26"/>
+                                <af:link text="link 2" id="pt_l24"/>
+                            </af:showDetailItem>
+                            <af:showDetailItem id="pane2" text="الدراسات والتخطيط"
+                                               icon="/assets/images/land.png">
+                                <af:link text="link 5" id="pt_l28"/>
+                                <af:link text="link 6" id="pt_l29"/>
+                                <af:link text="link 4" id="pt_l27"/>
+                            </af:showDetailItem>
+                            <af:showDetailItem id="pane3" text="اعدادات النظام" icon="/assets/images/land.png">
+                                <af:link text="link 8" id="pt_l31"/>
+                                <af:link text="link 9" id="pt_l32"/>
+                                <af:link text="link 7" id="pt_l30"/>
+                            </af:showDetailItem>
+                        </af:panelAccordion>
+                        <af:panelAccordion discloseMany="false" id="pa1d" discloseNone="true">
+                            <af:showDetailItem text="اعدادات النظام" id="pt_sdi1" icon="/images/settings.png" rendered="#{MenuBean.momtlkDivisionPageVisible || MenuBean.momtlkatPageVisible
+                                        || MenuBean.momtlkatRatingPageVisible || MenuBean.activitiesPageVisible
+                                        || MenuBean.albaladiaPageVisible || MenuBean.plansPageVisible
+                                        || MenuBean.campaignTypePageVisible || MenuBean.momtlkatPageVisible
+                                        || MenuBean.momtlkTypePageVisible || MenuBean.contractsMunicipalTFPageVisible}">
+                                <af:link text="تقسيم الممتلكات" id="pt_cl6" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.momtlkDivisionPageVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/MomtlkDivision.xml#MomtlkDivision"/>
+                                    <af:setPropertyListener from="/taskFlow/MomtlkDivision.xml#MomtlkDivision"
+                                                            to="#{sessionScope.taskFlowUrl}" type="action"/>
+                                    <af:setPropertyListener from="تقسيم الممتلكات" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <af:link text="تصنيف الممتلكات" id="pt_cl7" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.momtlkatRatingPageVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/MomtlkatRating.xml#MomtlkatRating"/>
+                                    <af:setPropertyListener from="تصنيف الممتلكات" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <af:link text="الانشطه" id="pt_cl8" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.activitiesPageVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl" value="/taskFlow/Activities.xml#Activities"/>
+                                    <af:setPropertyListener from="الانشطه" to="#{sessionScope.pagename}" type="action"/>
+                                </af:link>
+                                <af:link text="البلديات" id="pt_cl9" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.albaladiaPageVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl" value="/taskFlow/Albaladia.xml#Albaladia"/>
+                                    <af:setPropertyListener from="البلديات" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <af:link text="المخططات" id="pt_c20" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.plansPageVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl" value="/taskFlow/Plans.xml#Plans"/>
+                                    <af:setPropertyListener from="المخططات" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <af:link text="انواع الحملات الاعلانية" id="pt_c2l8012" partialSubmit="true"
+                                         rendered="#{MenuBean.campaignTypePageVisible}" immediate="true"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl" value="/taskFlow/CampaignType.xml#CampaignType"/>
+                                    <af:setPropertyListener from="انواع الحملات الاعلانية" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <af:link text="الممتلكات" id="pt_c2l0" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.momtlkatPageVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl" value="/taskFlow/Momtlkat.xml#Momtlkat"/>
+                                    <af:setPropertyListener from="الممتلكات" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <af:link text="عقود البلديات" id="pt_cl5q2" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.contractsMunicipalTFPageVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/ContractsMunicipalTF.xml#ContractsMunicipalTF"/>
+                                    <af:setPropertyListener from="/taskFlow/ContractsMunicipalTF.xml#ContractsMunicipalTF"
+                                                            to="#{sessionScope.taskFlowUrl}" type="action"/>
+                                    <af:setPropertyListener from="عقود البلديات" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <af:link text="نوع الممتلك" id="pt_cl5" partialSubmit="true" immediate="true"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}"
+                                         rendered="#{MenuBean.momtlkTypePageVisible}">
+                                    <f:attribute name="taskFlowUrl" value="/taskFlow/MomtlkType.xml#MomtlkType"/>
+                                    <af:setPropertyListener from="/taskFlow/MomtlkType.xml#MomtlkType"
+                                                            to="#{sessionScope.taskFlowUrl}" type="action"/>
+                                    <af:setPropertyListener from="نوع الممتلك" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <af:link text="الضبط الافتراضي للجان" id="pt_c2l20" partialSubmit="true"
+                                         immediate="true" rendered="#{MenuBean.committeeDefaultPageVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/CommitteeDefault.xml#CommitteeDefault"/>
+                                    <af:setPropertyListener from="الضبط الافتراضي للجان" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                            </af:showDetailItem>
+                            <af:showDetailItem text="الدراسات والتخطيط" id="pt_sdi11"
+                                               rendered="#{MenuBean.createSuggestionVisible || MenuBean.suggestionPlanningStudiesVisible || MenuBean.actualOpportunitiesVisible}"
+                                               inlineStyle="font-size:24px;" icon="/images/menu/3/Opportunities.png">
+                                <af:link text="قائمة الطلبات" id="pt_c2l2" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.createSuggestionVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/createSuggestion.xml#createSuggestion"/>
+                                    <af:setPropertyListener from="قائمة الطلبات" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <af:link text="قائمة المقترحات " id="pt_c2l3" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.suggestionPlanningStudiesVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/SuggestionPlanningStudies.xml#SuggestionPlanningStudies"/>
+                                    <af:setPropertyListener from="قائمة المقترحات" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <af:link text="قائمة الفرص" id="pt_c2l8" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.actualOpportunitiesVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/ActualOpportunities.xml#ActualOpportunities"/>
+                                    <af:setPropertyListener from="قائمة الفرص" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                            </af:showDetailItem>
+                            <af:showDetailItem text="الاصول الاستثماريه" id="pt_sdi12" inlineStyle="font-size:24px;"
+                                               rendered="#{MenuBean.landspropertyVisible}"
+                                               icon="/images/menu/3/land.png">
+                                <af:link id="pt_c2l9" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.landspropertyVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}" text="الاستعلامات">
+                                    <f:attribute name="taskFlowUrl" value="/taskFlow/Landsproperty.xml#Landsproperty"/>
+                                    <af:setPropertyListener from="الاصول الاستثماريه" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                            </af:showDetailItem>
+                            <af:showDetailItem text="التخطيط العمراني" id="pt_sdi2"
+                                               rendered="#{MenuBean.urbanPlanningVisible}" inlineStyle="font-size:24px;"
+                                               icon="/images/menu/3/UrbanPlanning.png">
+                                <af:link id="pt_c402" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.urbanPlanningVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}" text="الاستعلامات">
+                                    <f:attribute name="taskFlowUrl" value="/taskFlow/UrbanPlanning.xml#UrbanPlanning"/>
+                                    <af:setPropertyListener from="التخطيط العمراني" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                            </af:showDetailItem>
+                            <af:showDetailItem text="العرض علي الوكيل" id="pt_sdi4"
+                                               rendered="#{MenuBean.wakelOpportunitiesVisible}"
+                                               icon="/images/menu/3/Wakel.png">
+                                <af:link text="فرص الاستثمار" id="pt_c2l6" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.wakelOpportunitiesVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/WakelOpportunities.xml#WakelOpportunities"/>
+                                    <af:setPropertyListener from="فرص الاستثمار" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <!--<af:link text="تمديد التجهيز والمتابعه" id="pt_c2l96" partialSubmit="true" immediate="true"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/WakelExtendSupervisionFollowing.xml#WakelExtendSupervisionFollowing"/>
+                                   <af:setPropertyListener from="تمديد التجهيز والمتابعه" to="#{sessionScope.pagename}"
+                                                                    type="action"/> 
+                                </af:link>-->
+                                <af:link text="طلبات تنازل عن عقد" id="pt_l11" partialSubmit="true"
+                                         rendered="#{MenuBean.supervisionContractWaiverTFVisible}" immediate="true"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/SupervisionContractWaiverTF.xml#SupervisionContractWaiverTF"/>
+                                    <af:setPropertyListener from="طلبات تنازل عن عقد" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <af:link text="طلبات تأجير عقد من الباطن" id="pt_l20" partialSubmit="true"
+                                         immediate="true" rendered="#{MenuBean.supervisionContractSublettingTFVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/SupervisionContractSublettingTF.xml#SupervisionContractSublettingTF"/>
+                                    <af:setPropertyListener from="طلبات تأجير عقد من الباطن"
+                                                            to="#{sessionScope.pagename}" type="action"/>
+                                </af:link>
+                            </af:showDetailItem>
+                            <af:showDetailItem text="العرض علي الامين" id="pt_sdi5" inlineStyle="font-size:24px;"
+                                               rendered="#{MenuBean.amenOpportunitiesVisible}"
+                                               icon="/images/menu/3/Amen.png">
+                                <af:link text="فرص الاستثمار" id="pt_c2l7" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.amenOpportunitiesVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/AmenOpportunities.xml#AmenOpportunities"/>
+                                    <af:setPropertyListener from="فرص الاستثمار" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <af:link text="تفاوض او الغاء المزايده" id="pt_c2l765" partialSubmit="true"
+                                         immediate="true" rendered="#{MenuBean.amenNegotiateInvestmentBiddingVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/AmenNegotiateInvestmentBidding.xml#AmenNegotiateInvestmentBidding"/>
+                                    <af:setPropertyListener from="تفاوض او الغاء المزايده" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <af:link text="عدم الرغبه فى استمرار العقد" id="pt_l15" partialSubmit="true"
+                                         immediate="true" rendered="#{MenuBean.amenContractDiscontinuationTFVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/AmenContractDiscontinuationTF.xml#AmenContractDiscontinuationTF"/>
+                                    <af:setPropertyListener from="عدم الرغبه فى استمرار العقد"
+                                                            to="#{sessionScope.pagename}" type="action"/>
+                                </af:link>
+                                <af:link text="سحب عقد" id="pt_l23" partialSubmit="true"
+                                         rendered="#{MenuBean.amenPullContractTFVisible}" immediate="true"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/AmenPullContractTF.xml#AmenPullContractTF"/>
+                                    <af:setPropertyListener from="سحب عقد" to="#{sessionScope.pagename}" type="action"/>
+                                </af:link>
+                            </af:showDetailItem>
+                            <af:showDetailItem text="الخريطة الاستثمارية" id="pt_sdi508" inlineStyle="font-size:24px;"
+                                               rendered="#{MenuBean.mapVisible}" icon="/images/menu/3/Amen.png">
+                                <af:link text="الخريطة الاستثمارية" id="pt_c2l708" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.mapVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl" value="/taskFlow/Map.xml#Map"/>
+                                    <af:setPropertyListener from="الخريطة الاستثمارية" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                            </af:showDetailItem>
+                            <af:showDetailItem text="المزايدات" id="pt_sdi6" inlineStyle="font-size:24px;"
+                                               rendered="#{MenuBean.biddingVisible}" icon="/images/menu/3/bidding.png">
+                                <af:link text="فرص الاستثمار" id="pt_c2l80" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.biddingVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl" value="/taskFlow/Bidding.xml#Bidding"/>
+                                    <af:setPropertyListener from="فرص الاستثمار" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <af:link text="المزايدات التي طرحت" id="pt_c2l820" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.biddingAfterLinkiForsVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/BiddingAfterLinkiFors.xml#BiddingAfterLinkiFors"/>
+                                    <af:setPropertyListener from="المزايدات التي طرحت" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <af:link text="لجنة فتح المظاريف" id="pt_c2l8251" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.committeeBidOpeningVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/CommitteeBidOpening.xml#CommitteeBidOpening"/>
+                                    <af:setPropertyListener from="لجنة فتح المظاريف" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <af:link text="لجنة الاستثمار - الترسية" id="pt_c2l800" partialSubmit="true"
+                                         immediate="true" rendered="#{MenuBean.tarsiaVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl" value="/taskFlow/tarsia.xml#tarsia"/>
+                                    <af:setPropertyListener from="لجنة الاستثمار - الترسية"
+                                                            to="#{sessionScope.pagename}" type="action"/>
+                                </af:link>
+                            </af:showDetailItem>
+                            <af:showDetailItem text="التسويق" id="pt_sdi3"
+                                               rendered="#{MenuBean.investmentCampaignVisible}"
+                                               icon="/images/menu/3/marketing.png">
+                                <af:link text="الحملات الاعلانية" id="pt_c2l8011" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.investmentCampaignVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/InvestmentCampaign.xml#InvestmentCampaign"/>
+                                    <af:setPropertyListener from="الحملات الاعلانية" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                            </af:showDetailItem>
+                            <af:showDetailItem text="المستثمرين" id="pt_sdi31"
+                                               rendered="#{MenuBean.investorCitizenVisible}"
+                                               icon="/images/menu/3/investor1.png">
+                                <af:link text="المواطنين" id="pt_c2l80110" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.investorCitizenVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/InvestorCitizen.xml#InvestorCitizen"/>
+                                    <af:setPropertyListener from="المواطنين" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <af:link text="المؤسسات والشركات" id="pt_c2l801105" partialSubmit="true"
+                                         immediate="true" rendered="#{MenuBean.investorCompanyVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/InvestorCompany.xml#InvestorCompany"/>
+                                    <af:setPropertyListener from="المؤسسات والشركات" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                            </af:showDetailItem>
+                            <af:showDetailItem text="العقود" id="pt_sdi32" rendered="#{MenuBean.contractVisible}"
+                                               icon="/images/menu/3/contract.png">
+                                <af:link text="عقد جديد" id="pt_c2l80112" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.contractVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl" value="/taskFlow/contract.xml#contract"/>
+                                    <af:setPropertyListener from="عقد جديد" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                            </af:showDetailItem>
+                            <af:showDetailItem text="طلبات العقود" id="pt_sdi7"
+                                               rendered="#{MenuBean.contractBillsVisible || MenuBean.editActivityVisible || MenuBean.contractWaiverVisible || MenuBean.contractDiscontinuationVisible || MenuBean.sublettingVisible || MenuBean.pullContractVisible}"
+                                               icon="/images/menu/3/contractRequest.png">
+                                <af:link text="#{scrlabels['allRequests']}" id="pt_l25" partialSubmit="true"
+                                         rendered="#{MenuBean.allRequestsVisible}" immediate="true"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl" value="/taskFlow/AllRequests.xml#AllRequests"/>
+                                    <af:setPropertyListener from="#{scrlabels['allRequests']}"
+                                                            to="#{sessionScope.pagename}" type="action"/>
+                                    <af:setPropertyListener from="" to="#{pageFlowScope.TContractFk}" type="action"/>
+                                    <af:setPropertyListener from="" to="#{sessionScope.TContractFk}" type="action"/>
+                                    <af:setPropertyListener from="" to="#{pageFlowScope.TRequestTypeFk}" type="action"/>
+                                </af:link>
+                                <!--<af:link text="#{scrlabels['RequestWarningPaidTF']}" id="pt_l24" partialSubmit="true"
+                                rendered="#{MenuBean.requestWarningPaidVisible}"
+                                         immediate="true" actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl" value="/taskFlow/RequestWarningPaidTF.xml#RequestWarningPaidTF"/>
+									  <af:setPropertyListener from="#{scrlabels['RequestWarningPaidTF']}" to="#{sessionScope.pagename}"
+                                                                    type="action"/> 
+                                    
+                                </af:link>-->
+                                <af:link text="#{scrlabels['ContractBills']}" id="pt_l81" partialSubmit="true"
+                                         immediate="true" rendered="#{MenuBean.contractBillsVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl" value="/taskFlow/ContractBills.xml#ContractBills"/>
+                                    <af:setPropertyListener from="#{scrlabels['ContractBills']}"
+                                                            to="#{sessionScope.pagename}" type="action"/>
+                                    <af:setPropertyListener from="" to="#{sessionScope.TContractFk}" type="action"/>
+                                    <af:setPropertyListener from="" to="#{pageFlowScope.TRequestTypeFk}" type="action"/>
+                                </af:link>
+                                <af:link text="سداد أجرة" id="pt_l8" partialSubmit="true" immediate="true"
+                                         rendered="false" actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/ContractBenefits.xml#ContractBenefits"/>
+                                    <af:setPropertyListener from="سداد أجرة" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <af:link text="تجديد عقد" id="pt_l805" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.contractRenewalVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/ContractRenewal.xml#ContractRenewal"/>
+                                    <af:setPropertyListener from="تجديد عقد" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                    <af:setPropertyListener from="" to="#{sessionScope.TContractFk}" type="action"/>
+                                    <af:setPropertyListener from="" to="#{pageFlowScope.TRequestTypeFk}" type="action"/>
+                                </af:link>
+                                <af:link text="تعديل النشاط" id="pt_l1" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.editActivityVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl" value="/taskFlow/EditActivity.xml#EditActivity"/>
+                                    <af:setPropertyListener from="تعديل النشاط" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                    <af:setPropertyListener from="" to="#{sessionScope.TContractFk}" type="action"/>
+                                    <af:setPropertyListener from="" to="#{pageFlowScope.TRequestTypeFk}" type="action"/>
+                                </af:link>
+                                <af:link text="تنازل عن العقد" id="pt_l9" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.contractWaiverVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/ContractWaiverTF.xml#ContractWaiverTF"/>
+                                    <af:setPropertyListener from="تنازل عن العقد" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                    <af:setPropertyListener from="" to="#{sessionScope.TContractFk}" type="action"/>
+                                    <af:setPropertyListener from="" to="#{pageFlowScope.TRequestTypeFk}" type="action"/>
+                                </af:link>
+                                <af:link text="عدم الرغبه فى استمرار العقد" id="pt_l12" partialSubmit="true"
+                                         immediate="true" rendered="#{MenuBean.contractDiscontinuationVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/ContractDiscontinuationTF.xml#ContractDiscontinuationTF"/>
+                                    <af:setPropertyListener from="عدم الرغبه فى استمرار العقد"
+                                                            to="#{sessionScope.pagename}" type="action"/>
+                                    <af:setPropertyListener from="" to="#{sessionScope.TContractFk}" type="action"/>
+                                    <af:setPropertyListener from="" to="#{pageFlowScope.TRequestTypeFk}" type="action"/>
+                                </af:link>
+                                <af:link text="التأجير من الباطن" id="pt_l18" partialSubmit="true"
+                                         rendered="#{MenuBean.sublettingVisible}" immediate="true"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl" value="/taskFlow/Subletting.xml#Subletting"/>
+                                    <af:setPropertyListener from="التأجير من الباطن" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                    <af:setPropertyListener from="" to="#{sessionScope.TContractFk}" type="action"/>
+                                    <af:setPropertyListener from="" to="#{pageFlowScope.TRequestTypeFk}" type="action"/>
+                                </af:link>
+                                <af:link text="سحب عقد" id="pt_l21" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.pullContractVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl" value="/taskFlow/pullContract.xml#pullContract"/>
+                                    <af:setPropertyListener from="سحب عقد" to="#{sessionScope.pagename}" type="action"/>
+                                    <af:setPropertyListener from="" to="#{sessionScope.TContractFk}" type="action"/>
+                                    <af:setPropertyListener from="" to="#{pageFlowScope.TRequestTypeFk}" type="action"/>
+                                </af:link>
+                                <af:link text="متابعة طلبات العقود" id="pt_l4" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.openedRequestsFollowVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/OpenedRequestsFollow.xml#OpenedRequestsFollow"/>
+                                    <af:setPropertyListener from="متابعة طلبات العقود" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                    <af:setPropertyListener from="" to="#{sessionScope.TContractFk}" type="action"/>
+                                    <af:setPropertyListener from="" to="#{pageFlowScope.TRequestTypeFk}" type="action"/>
+                                </af:link>
+                            </af:showDetailItem>
+                            <af:showDetailItem text="لجنة الاستلام" id="pt_sdi15"
+                                               rendered="#{MenuBean.secretaryReceivingCommitteeVisible}"
+                                               icon="/images/menu/3/CommitteesReceiving.png">
+                                <af:link text="سكرتير الجان-جديد" id="pt_l14" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.secretaryReceivingCommitteeVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/SecretaryReceivingCommittee.xml#SecretaryReceivingCommittee"/>
+                                    <af:setPropertyListener from="سكرتير الجان-جديد" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <af:link text="لجان الاستلام" id="pt_l16" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.receivingCommitteeVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/ReceivingCommittee.xml#ReceivingCommittee"/>
+                                    <af:setPropertyListener from="لجان الاستلام" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <af:link text="اعتماد اللجان - الاعضاء" id="pt_l17" partialSubmit="true"
+                                         rendered="#{MenuBean.committeesReceivingApprovalVisible}" immediate="true"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/CommitteesReceivingApproval.xml#CommitteesReceivingApproval"/>
+                                    <af:setPropertyListener from="اعتماد اللجان - الاعضاء" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                            </af:showDetailItem>
+                            <af:showDetailItem text="موظف الخدمه المشتركة" id="pt_sdi13"
+                                               rendered="#{MenuBean.serviceEmployeeContractRenewalVisible}"
+                                               icon="/images/menu/3/ServiceEmployee.png">
+                                <af:link text="تجديد عقد" id="pt_l135" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.serviceEmployeeContractRenewalVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/ServiceEmployeeContractRenewal.xml#ServiceEmployeeContractRenewal"/>
+                                    <af:setPropertyListener from="تجديد عقد" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <af:link text="تنازل عن عقد" id="pt_l13" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.sendServiceEmployeeVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/SendServiceEmployeeTF.xml#SendServiceEmployeeTF"/>
+                                    <af:setPropertyListener from="تنازل عن عقد" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <af:link text="تأجير عقد من الباطن" id="pt_l19" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.serviceEmployeeSublettingVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/ServiceEmployeeSublettingTF.xml#ServiceEmployeeSublettingTF"/>
+                                    <af:setPropertyListener from="تأجير عقد من الباطن" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <af:link text="سحب عقد" id="pt_l22" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.serviceEmployeePullContractVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/ServiceEmployeePullContractTF.xml#ServiceEmployeePullContractTF"/>
+                                    <af:setPropertyListener from="سحب عقد" to="#{sessionScope.pagename}" type="action"/>
+                                </af:link>
+                            </af:showDetailItem>
+                            <af:showDetailItem text="المراقب الميدانى للعقود" id="pt_sdi14"
+                                               rendered="#{MenuBean.fieldObserverVisible}"
+                                               icon="/images/menu/3/Observer.png">
+                                <af:link text=" تنازل عن عقد-رد المراقب" id="pt_l10" partialSubmit="true"
+                                         rendered="#{MenuBean.fieldObserverVisible}" immediate="true"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/FieldObserverTF.xml#FieldObserverTF"/>
+                                    <af:setPropertyListener from=" تنازل عن عقد-رد المراقب"
+                                                            to="#{sessionScope.pagename}" type="action"/>
+                                </af:link>
+                                <af:link text="عقود اوشكت علي الانتهاء" id="pt_l105" partialSubmit="true"
+                                         rendered="#{MenuBean.observerContractsExpireAfter4MonthsVisible}"
+                                         immediate="true" actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/ObserverContractsExpireAfter4Months.xml#ObserverContractsExpireAfter4Months"/>
+                                    <af:setPropertyListener from="عقود اوشكت علي الانتهاء" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                            </af:showDetailItem>
+                            <af:showDetailItem text="لجنة تعديل الانشطة الاستثمارية" id="pt_sdi8"
+                                               rendered="#{MenuBean.secretaryEditActivityCommitteeVisible}"
+                                               icon="/images/menu/3/ActivityCommittee.png">
+                                <af:link text="سكرتير الجان-جديد" id="pt_l2" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.secretaryEditActivityCommitteeVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/SecretaryEditActivityCommittee.xml#SecretaryEditActivityCommittee"/>
+                                    <af:setPropertyListener from="سكرتير الجان-جديد" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <af:link text="لجان تعديل النشاط" id="pt_l3" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.editActivityCommitteesVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/EditActivityCommittees.xml#EditActivityCommittees"/>
+                                    <af:setPropertyListener from="لجان تعديل النشاط" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <!--<af:link text="اعتماد اللجان - الاعضاء" id="pt_l4" partialSubmit="true" immediate="true"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/CommitteesEditActivityApproval.xml#CommitteesEditActivityApproval"/>
+                                     <af:setPropertyListener from="اعتماد اللجان - الاعضاء" to="#{sessionScope.pagename}"
+                                                                    type="action"/> 
+                                </af:link>-->
+                            </af:showDetailItem>
+                            <af:showDetailItem text="لجنة الاستثمار تعديل نشاط" id="pt_sdi9"
+                                               rendered="#{MenuBean.secretaryInvestCommitteeVisible}"
+                                               icon="/images/menu/3/InvestCommittee.png">
+                                <af:link text="سكرتير الجان-جديد" id="pt_l5" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.secretaryInvestCommitteeVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/SecretaryInvestCommittee.xml#SecretaryInvestCommittee"/>
+                                    <af:setPropertyListener from="سكرتير الجان-جديد" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <!--<af:link text="تقدير فرص التعاقد المباشر" id="pt_l02405" partialSubmit="true" immediate="true"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/NegotiateDirectContractTF.xml#NegotiateDirectContractTF"/>
+                                     <af:setPropertyListener from="تقدير فرص التعاقد المباشر" to="#{sessionScope.pagename}"
+                                                                    type="action"/> 
+                                </af:link>-->
+                                <!--<af:link text="عقود اوشكت علي الانتهاء" id="pt_l0245" partialSubmit="true" immediate="true"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/InvestContractsExpireAfter4Months.xml#InvestContractsExpireAfter4Months"/>
+                                      <af:setPropertyListener from="عقود اوشكت علي الانتهاء" to="#{sessionScope.pagename}"
+                                                                    type="action"/> 
+                                </af:link>-->
+                                <af:link text="لجان الاستثمار" id="pt_l6" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.investCommitteesVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/InvestCommittees.xml#InvestCommittees"/>
+                                    <af:setPropertyListener from="لجان الاستثمار" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <!--<af:link text="اعتماد اللجان - الاعضاء" id="pt_l7" partialSubmit="true" immediate="true"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/CommitteesInvestApproval.xml#CommitteesInvestApproval"/>
+                                      <af:setPropertyListener from="اعتماد اللجان - الاعضاء" to="#{sessionScope.pagename}"
+                                                                    type="action"/> 
+                                </af:link>-->
+                            </af:showDetailItem>
+                            <af:showDetailItem text="لجنة الاستثمار- تجديد عقد" id="pt_sdi09"
+                                               rendered="#{MenuBean.secretaryInvestCommitteeForRenewalVisible}"
+                                               icon="/images/menu/3/InvestCommittee.png">
+                                <af:link text="سكرتير لجنة الاستثمار " id="pt_l147" partialSubmit="true"
+                                         immediate="true"
+                                         rendered="#{MenuBean.secretaryInvestCommitteeForRenewalVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/SecretaryInvestCommitteeForRenewal.xml#SecretaryInvestCommitteeForRenewal"/>
+                                    <af:setPropertyListener from="سكرتير لجنة الاستثمار" to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                                <af:link text="لجان الاستثمار " id="pt_l678" partialSubmit="true" immediate="true"
+                                         rendered="#{MenuBean.investCommitteesForRenewalVisible}"
+                                         actionListener="#{TFLauncherBean.dyanmicAction}">
+                                    <f:attribute name="taskFlowUrl"
+                                                 value="/taskFlow/InvestCommitteesForRenewal.xml#InvestCommitteesForRenewal"/>
+                                    <af:setPropertyListener from="لجان الاستثمار " to="#{sessionScope.pagename}"
+                                                            type="action"/>
+                                </af:link>
+                            </af:showDetailItem>
+                            <!--<af:showDetailItem text="الاشراف والمتابعه - مدير الادارة" id="pt_sdi33"
+                            icon="/images/menu/3/RequestSupervision.png">
+                                    <af:link text="جديد طلبات المتابعه" id="pt_c2l80113" partialSubmit="true"
+                                             immediate="true" actionListener="#{TFLauncherBean.dyanmicAction}">
+                                        <f:attribute name="taskFlowUrl"
+                                                     value="/taskFlow/SupervisionFollowManagerNew.xml#SupervisionFollowManagerNew"/>
+                                          <af:setPropertyListener from="جديد طلبات المتابعه" to="#{sessionScope.pagename}"
+                                                                    type="action"/> 
+                                    </af:link>
+                                    
+                                     <af:link text="طلبات تم اسنادها للمراقب" id="pt_c2l8062" partialSubmit="true"
+                                             immediate="true" actionListener="#{TFLauncherBean.dyanmicAction}">
+                                        <f:attribute name="taskFlowUrl"
+                                                     value="/taskFlow/SupervisionFollowManagerToObserver.xml#SupervisionFollowManagerToObserver"/>
+                                          <af:setPropertyListener from="طلبات تم اسنادها للمراقب" to="#{sessionScope.pagename}"
+                                                                    type="action"/> 
+                                    </af:link>
+                                    
+                                </af:showDetailItem>-->
+                            <!--<af:showDetailItem text="الاشراف والمتابعه -  المراقب الميداني" id="pt_sdi34"
+                                icon="/images/menu/3/Observer.png">
+                                    <af:link text="جديد طلبات المتابعه" id="pt_c2l80114" partialSubmit="true"
+                                             immediate="true" actionListener="#{TFLauncherBean.dyanmicAction}">
+                                        <f:attribute name="taskFlowUrl"
+                                                     value="/taskFlow/SupervisionFollowobserverNew.xml#SupervisionFollowobserverNew"/>
+                                          <af:setPropertyListener from="جديد طلبات المتابعه" to="#{sessionScope.pagename}"
+                                                                    type="action"/> 
+                                    </af:link>
+                                    
+                                      <af:link text="متابعه الجدول الزمني" id="pt_c2l8064" partialSubmit="true"
+                                             immediate="true" actionListener="#{TFLauncherBean.dyanmicAction}">
+                                        <f:attribute name="taskFlowUrl"
+                                                     value="/taskFlow/SupervisionFollowObserverSchedule.xml#SupervisionFollowObserverSchedule"/>
+                                          <af:setPropertyListener from="متابعه الجدول الزمني" to="#{sessionScope.pagename}"
+                                                                    type="action"/> 
+                                    </af:link>
+                                </af:showDetailItem>-->
+                            <!--<af:showDetailItem text="الاشراف والمتابعه -  مدخل البيانات" id="pt_sdi36"
+                                 icon="/images/menu/3/investor2.png">
+                                    <af:link text="جديد طلبات المتابعه" id="pt_c2l80116" partialSubmit="true"
+                                             immediate="true" actionListener="#{TFLauncherBean.dyanmicAction}">
+                                        <f:attribute name="taskFlowUrl"
+                                                     value="/taskFlow/SupervisionFollowDataEntriesTF.xml#SupervisionFollowDataEntriesTF"/>
+                                          <af:setPropertyListener from="جديد طلبات المتابعه" to="#{sessionScope.pagename}"
+                                                                    type="action"/> 
+                                    </af:link>
+                                </af:showDetailItem>-->
+                            <!--<af:showDetailItem text="لجنة اعتماد التصاميم الهندسية" id="pt_sdi37"
+                                  icon="/images/menu/3/ExaminationCommittee.png">
+                                    <af:link text="سكرتير  اللجان -جديد" id="pt_c2l80117" partialSubmit="true"
+                                             immediate="true" actionListener="#{TFLauncherBean.dyanmicAction}">
+                                        <f:attribute name="taskFlowUrl"
+                                                     value="/taskFlow/SecretaryExaminationCommittee.xml#SecretaryExaminationCommittee"/>
+                                          <af:setPropertyListener from="سكرتير  اللجان -جديد" to="#{sessionScope.pagename}"
+                                                                    type="action"/> 
+                                    </af:link>
+                                    
+                                     <af:link text="لجان اعتماد التصاميم" id="pt_c2l80118" partialSubmit="true"
+                                             immediate="true" actionListener="#{TFLauncherBean.dyanmicAction}">
+                                        <f:attribute name="taskFlowUrl"
+                                                     value="/taskFlow/ExaminationCommittees.xml#ExaminationCommittees"/>
+                                          <af:setPropertyListener from="لجان اعتماد التصاميم" to="#{sessionScope.pagename}"
+                                                                    type="action"/> 
+                                    </af:link>
+                                     <af:link text="اعتماد اللجان - الاعضاء" id="pt_c2l80119" partialSubmit="true"
+                                             immediate="true" actionListener="#{TFLauncherBean.dyanmicAction}">
+                                        <f:attribute name="taskFlowUrl"
+                                                     value="/taskFlow/CommitteesExaminationApproval.xml#CommitteesExaminationApproval"/>
+                                         <af:setPropertyListener from="اعتماد اللجان - الاعضاء" to="#{sessionScope.pagename}"
+                                                                    type="action"/> 
+                                    </af:link>
+                                    
+                                    
+                                </af:showDetailItem>-->
+                            <!--<af:showDetailItem text="ادارة الرخص" id="pt_sdi61"
+                                 icon="/images/menu/3/LicensesManagement.png">
+                                    <af:link text="اصدار الرخص" id="pt_c2l8065" partialSubmit="true"
+                                             immediate="true" actionListener="#{TFLauncherBean.dyanmicAction}">
+                                        <f:attribute name="taskFlowUrl"
+                                                     value="/taskFlow/LicensesManagement.xml#LicensesManagement"/>
+                                          <af:setPropertyListener from="اصدار الرخص" to="#{sessionScope.pagename}"
+                                                                    type="action"/> 
+                                    </af:link>
+                                </af:showDetailItem>-->
+                            <!--<af:showDetailItem text="ادارة المكتب الهندسي" id="pt_sdi62"
+                                                    icon="/images/menu/3/officeEng.png">
+                                    <af:link text="اعتماد المكتب والمقاول" id="pt_c2l8066" partialSubmit="true"
+                                             immediate="true" actionListener="#{TFLauncherBean.dyanmicAction}">
+                                        <f:attribute name="taskFlowUrl"
+                                                     value="/taskFlow/EngineeringOfficeManagement.xml#EngineeringOfficeManagement"/>
+                                         <af:setPropertyListener from="اعتماد المكتب والمقاول" to="#{sessionScope.pagename}"
+                                                                    type="action"/> 
+                                    </af:link>
+                                </af:showDetailItem>-->
+                            <!--<af:showDetailItem text="ادارة دعم المستثمرين" id="pt_sdi10"
+                                               icon="/images/menu/3/RequestSupervision.png">
+                              <af:link text="طلبات دعم المستثمرين" id="pt_c2l8066d" partialSubmit="true"
+                                             immediate="true" actionListener="#{TFLauncherBean.dyanmicAction}">
+                                        <f:attribute name="taskFlowUrl"
+                                                     value="/taskFlow/InvestorSupportRequests.xml#InvestorSupportRequests"/>
+                                         <af:setPropertyListener from="طلبات دعم المستثمرين" to="#{sessionScope.pagename}"
+                                                                    type="action"/> 
+                                    </af:link>
+                                    
+                                      <af:link text="الرد علي طلبات دعم المستثمرين" id="pt_c2l8066d7" partialSubmit="true"
+                                             immediate="true" actionListener="#{TFLauncherBean.dyanmicAction}">
+                                        <f:attribute name="taskFlowUrl"
+                                                     value="/taskFlow/ResponseInvestorSupportRequests.xml#ResponseInvestorSupportRequests"/>
+                                         <af:setPropertyListener from="الرد علي طلبات دعم المستثمرين" to="#{sessionScope.pagename}"
+                                                                    type="action"/> 
+                                    </af:link>
+                            </af:showDetailItem>-->
+                            <!--<af:showDetailItem text="الارشيف" id="pt_sdi150"
+                                               icon="/images/menu/3/RequestSupervision.png">
+                              <af:link text="الارشيف" id="pt_c2l80665d" partialSubmit="true"
+                                             immediate="true" actionListener="#{TFLauncherBean.dyanmicAction}">
+                                        <f:attribute name="taskFlowUrl"
+                                                     value="/taskFlow/Archives.xml#Archives"/>
+                                         <af:setPropertyListener from="الارشيف" to="#{sessionScope.pagename}"
+                                                                    type="action"/> 
+                                    </af:link>
+                            </af:showDetailItem>-->
+                        </af:panelAccordion>
+                    </af:panelGroupLayout>
+                </af:panelGroupLayout>
+            </f:facet>
+            <f:facet name="second">
+                <af:panelGridLayout id="pt_pgl1">
+                    <af:gridRow height="50px" id="pt_gr1">
+                        <af:gridCell width="100%" halign="stretch" valign="stretch" id="pt_gc2">
+                            <!-- Partial Header -->
+                            <af:panelGroupLayout id="pt_pgl2" styleClass="header">
+                                <af:panelGroupLayout id="pt_pgl11" styleClass="navs">
+                                    <af:link id="pt_l2523" icon="/images/icon/menu.svg" styleClass="menu-bar p-1"
+                                             immediate="true" partialSubmit="true">
+                                        <af:clientListener type="action" method="collapsPS"/>
+                                        <af:clientAttribute name="psClientId" value="#{menu.mainPSId}"/>
+                                    </af:link>
+                                    <af:panelGroupLayout id="pt_pg25484l13"
+                                                         styleClass="d-flex align-items-center mx-2 justify-content-center">
+                                        <af:image source="/images/user-img.svg" id="pt_i2" inlineStyle="height: 40px"/>
+                                        <af:panelGroupLayout id="pt_pgl14" styleClass="mx-1">
+                                            <af:outputText value="مرحبــــــــــــــــــــــاً بك"
+                                                           styleClass="user-welcome mt-2" id="pt_ot1" rendered="false"/>
+                                            <af:menuBar id="pt_mb2" rendered="true">
+                                                <af:menu styleClass="user-menu" text="#{loginBean.userID} + Mohamed" id="pt_m2">
+                                                    <af:commandMenuItem text="تسجيل خروج" id="pt_cmi8"
+                                                                        action="#{loginBean.logout}"
+                                                                        partialSubmit="true" immediate="true"
+                                                                        icon="/images/icon/logout.svg"
+                                                                        styleClass="text-danger"/>
+                                                </af:menu>
+                                            </af:menuBar>
+                                        </af:panelGroupLayout>
+                                    </af:panelGroupLayout>
+                                </af:panelGroupLayout>
+                                <af:panelGroupLayout id="pt_pgl3" styleClass="navs">
+                                    <af:panelGroupLayout id="pgl19"
+                                                         styleClass="col-lg-6 col-12 d-flex align-items-center justify-content-end">
+                                        <af:panelGroupLayout styleClass="breadcrumb">
+                                            <af:panelGroupLayout>
+                                                <af:link text="الصفحة الرئيسية" id="l2"
+                                                         actionListener="#{TFLauncherBean.dyanmicAction}"
+                                                         styleClass="nav-link" icon="/images/icon/home_page.png"
+                                                         rendered="true">
+                                                    <f:attribute name="taskFlowUrl"
+                                                                 value="/taskFlow/dashboardTest.xml#dashboardTest"/>
+                                                    <af:setPropertyListener from="الصفحة الرئيسية"
+                                                                            to="#{sessionScope.pagename}"
+                                                                            type="action"/>
+                                                </af:link>
+                                            </af:panelGroupLayout>
+                                            <!--<af:panelGroupLayout styleClass="breadcrumb-item">
+                                                <af:link text="المحتوي الاول " id="l1"/>
+                                            </af:panelGroupLayout>
+                                            <af:panelGroupLayout styleClass="breadcrumb-item active">
+                                                <af:link text="الصفحة الخالية" id="l3"/>
+                                            </af:panelGroupLayout>-->
+                                        </af:panelGroupLayout>
+                                    </af:panelGroupLayout>
+                                    <af:panelGroupLayout id="pt_pgl103" inlineStyle="height: 40px;">
+                                        <af:image source="/images/HailRegionLogo.svg" shortDesc="logo" id="pt_i3000"
+                                                  styleClass="h-100"/>
+                                    </af:panelGroupLayout>
+                                    <af:panelGroupLayout id="pt_pgl12" inlineStyle="height: 40px;">
+                                        <af:image source="/images   /2030logo.svg" shortDesc="logo" id="pt_i02"
+                                                  styleClass="h-100 bootstrapmx-4"/>
+                                    </af:panelGroupLayout>
+                                    <!--<af:panelGroupLayout  styleClass="nav-link menu-main-user mx-2 d-flex align-items-center" id="s">
+                                    -->
+                                    <!--<af:panelGroupLayout id="pt_pgl6s" styleClass="d-flex align-items-center">
+                                            <af:image source="/images/icon/user.svg" shortDesc="user" id="pt_i300"
+                                                      styleClass="user-photo"/>
+                                            <af:panelGroupLayout id="pt_pgl011"
+                                                             styleClass="menu-user d-flex flex-column justify-content-center">
+                                            <af:menuBar id="pt_mb1" rendered="true">
+                                                <af:menu text="#{loginBean.userID}" id="pt_m1">
+                                                  <af:commandMenuItem text="تسجيل خروج" id="pt_cmi3"
+                                                        icon="/images/icon/logout.svg" action="#{loginBean.logout}"/>
+                                                </af:menu>
+                                            </af:menuBar>
+                                        </af:panelGroupLayout>
+                                    </af:panelGroupLayout>-->
+                                    <!--
+                                </af:panelGroupLayout >-->
+                                </af:panelGroupLayout>
+                            </af:panelGroupLayout>
+                        </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow height="100%" id="pt_gr2">
+                        <af:gridCell width="100%" halign="stretch" valign="stretch" id="pt_gc1">
+                            <!-- Content -->
+                            <af:panelGroupLayout id="pt_pgl4" styleClass="main-content">
+                                <af:panelGroupLayout id="pt_pgl6" styleClass="content-wrapper">
+                                    <!--<af:panelGroupLayout id="header-pgl0" styleClass="row">
+                                    <af:panelGroupLayout id="pgl20" styleClass="col-lg-6 col-12">
+                                        <af:outputText 
+                                value="#{sessionScope.pagename==null?'الشاشة الرئيسية':sessionScope.pagename}" id="ot1"
+                                                       styleClass="title-page h5"/>
+                                    </af:panelGroupLayout>
+                                   
+                                </af:panelGroupLayout>-->
+                                    <af:facetRef facetName="main"/>
+                                </af:panelGroupLayout>
+                                <af:panelGroupLayout id="pt_pgl5" styleClass="footer">
+                                    <af:activeOutputText value="جميع الحقوق محفوظة لأمانة منطقة حائل 2022م "
+                                                         id="pt_aot1"/>
+                                </af:panelGroupLayout>
+                            </af:panelGroupLayout>
+                        </af:gridCell>
+                    </af:gridRow>
+                </af:panelGridLayout>
+            </f:facet>
+        </af:panelSplitter>
+        <af:popup id="closePopup">
+            <af:dialog id="dialog" title="#{scrlabels['label.areYouSure']}"
+                       affirmativeTextAndAccessKey="#{scrlabels['label.yes']}"
+                       cancelTextAndAccessKey="#{scrlabels['label.cancel']}"
+                       dialogListener="#{MenuBean.deleteDialogListener}" type="okCancel">
+                <af:panelGroupLayout layout="vertical" id="pgldeleteSure">
+                    <af:outputText value="#{scrlabels['label.deleteSure']}" id="itt11"/>
+                </af:panelGroupLayout>
+            </af:dialog>
+        </af:popup>
+        <af:resource type="javascript">
+          $(document).ready(function () {
+              $("#loader").delay(800).remove();
+              console.log("remove Done")
+              $(".accourdion-sys").click(function () {
+                  $(".accourdion-sys ul").toggle();
+              });
+          });
+
+          function openMenu(evt) {
+              var menuMob = document.getElementById("pt1:settingsMenu");
+              var btnMob = document.getElementById("pt1:settingsBtn");
+              var btnClose = document.getElementById("pt1:settingsBtnClose");
+
+              menuMob.classList.toggle("open");
+              btnMob.classList.add("d-none");
+              btnClose.classList.add("d-flex");
+          }
+
+              function closeMenu(evt) {
+                  var menuMob = document.getElementById("pt1:settingsMenu");
+                  var btnMob = document.getElementById("pt1:settingsBtn");
+                  var btnClose = document.getElementById("pt1:settingsBtnClose");
+
+                  menuMob.classList.toggle("open");
+                  btnMob.classList.remove("d-none");
+                  btnClose.classList.remove("d-flex");
+              }
+        </af:resource>
+    </af:pageTemplateDef>
+</jsp:root>

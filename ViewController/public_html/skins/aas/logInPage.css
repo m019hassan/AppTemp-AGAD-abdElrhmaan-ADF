@@ -1,0 +1,37 @@
+ .logInWrapper{
+ background-color: #313473;
+    height: 100%;
+    padding: 5% 0 0;
+    position: fixed;
+    width: 100%;
+   
+ }
+ .logo {
+    display: table;
+    margin: 0px auto 0;
+}
+.form {
+   background-color: #FFFFFF;
+    box-shadow: 0 0 100px -20px #000000;
+    display: table;
+    margin: 60px auto 0;
+    padding: 60px 60px 20px;
+}
+ .login button {
+    margin-top: 20px;
+    width: 100%;
+}
+label {
+    display: inline-block;
+    margin-bottom: 30px;
+    width: 110px;
+}
+.username input, .password input {
+    margin-bottom: 20px !important;
+    padding: 10px !important;
+    
+}
+
+
+
+

@@ -1,0 +1,87 @@
+._newSlider ,._newSlider2{
+    height: 350px;
+    margin: 0 auto;
+    width: 1000px;
+    position:relative;
+}
+
+._sliderWrap2,._sliderWrap {
+    height: 350px;
+    overflow: hidden;
+    position: relative;
+    width: 1000px;
+     
+}
+
+  ._sliderWrap2 ul,  ._sliderWrap ul {
+        left: 0;
+        list-style: none outside none;
+        position: absolute;
+    }
+     
+ 
+
+._hidden {
+    display: none;
+}
+
+
+
+._bulletsWrapper2,._bulletsWrapper  {
+    display: table;
+    margin: 310px auto 0;
+    position: relative;
+}
+
+._bullet2,._bullet {
+    background-color:  #c2c2c2;
+     
+    float: left;
+    height: 10px;
+    margin: 0 2px;
+    width: 10px;
+}
+
+ ._bullet2:hover, ._bullet2.selected     ,   ._bullet:hover, ._bullet.selected {
+        background-color:   #279736;
+        cursor: pointer;
+    }
+
+._slide,._slide2 {
+    float: left;  border-spacing: 7px;
+    /*height: 184px;*/
+    /*width: 649px;*/
+}
+
+    
+
+     
+
+    
+
+  
+
+.maskShadow {
+    background: url("../images/maskShadow.png") no-repeat scroll right top;
+    float: right;
+    height: 360px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

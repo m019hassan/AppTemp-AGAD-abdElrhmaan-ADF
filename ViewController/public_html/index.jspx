@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="#{sessionScope.pagename==null?'الشاشة الرئيسية':sessionScope.pagename}" id="d1">
+            <af:form id="f1" usesUpload="true">
+                <af:pageTemplate viewId="/templateDef2.jspx" id="pt1">
+                    <f:facet name="main">
+                        <af:panelGroupLayout id="pgl1" layout="vertical">
+                            <af:panelGroupLayout id="pgl2" layout="horizontal" styleClass="mb-3">
+                                <af:link text="link 1" id="main1010m"/>
+                                <af:button text="button 1" id="b1"/>
+                                <af:button text="button 2" id="b2" disabled="true"/>
+                                <af:button text="button 2" id="b3"/>
+                            </af:panelGroupLayout>
+                            <af:panelGroupLayout id="pgl3" styleClass="container-fluid">
+                                <af:panelGroupLayout id="pgl4" styleClass="row">
+                                    <af:panelGroupLayout id="pgl22" styleClass="col-12">
+                                        <af:panelGroupLayout id="pgl23" styleClass="card bg-primary">
+                                            <af:panelGroupLayout id="pgl24" styleClass="card-body">
+                                                <af:outputText value="الاصول الاستثمارية" id="ot9"
+                                                               styleClass="fs-5 text-white"/>
+                                            </af:panelGroupLayout>
+                                        </af:panelGroupLayout>
+                                    </af:panelGroupLayout>
+                                    <af:panelGroupLayout id="pgl6" styleClass="col-lg-3">
+                                        <af:panelGroupLayout id="pgl9" styleClass="card">
+                                            <af:panelGroupLayout id="pgl10" styleClass="card-body">
+                                                <af:outputText value="إجمالي الأصول" id="ot1" styleClass="title"/>
+                                                <af:panelGroupLayout id="pgl12" styleClass="d-flex">
+                                                    <af:outputText value="30215" id="ot2" styleClass="text"/>
+                                                    <af:image source="/assets/images/dashboard/plans.png" id="i3"
+                                                              styleClass="icon"/>
+                                                </af:panelGroupLayout>
+                                            </af:panelGroupLayout>
+                                        </af:panelGroupLayout>
+                                    </af:panelGroupLayout>
+                                    <af:panelGroupLayout id="pgl7" styleClass="col-lg-3">
+                                        <af:panelGroupLayout id="pgl8" styleClass="card">
+                                            <af:panelGroupLayout id="pgl13" styleClass="card-body">
+                                                <af:outputText value="إجمالي الأصول" id="ot3" styleClass="title"/>
+                                                <af:panelGroupLayout id="pgl14" styleClass="d-flex">
+                                                    <af:outputText value="30215" id="ot4" styleClass="text"/>
+                                                    <af:image source="/assets/images/contract.png" id="i1"
+                                                              styleClass="icon"/>
+                                                </af:panelGroupLayout>
+                                            </af:panelGroupLayout>
+                                        </af:panelGroupLayout>
+                                    </af:panelGroupLayout>
+                                    <af:panelGroupLayout id="pgl5" styleClass="col-lg-3">
+                                        <af:panelGroupLayout id="pgl15" styleClass="card">
+                                            <af:panelGroupLayout id="pgl16" styleClass="card-body">
+                                                <af:outputText value="إجمالي الأصول" id="ot7" styleClass="title"/>
+                                                <af:panelGroupLayout id="pgl17" styleClass="d-flex">
+                                                    <af:outputText value="30215" id="ot8" styleClass="text"/>
+                                                    <af:image source="/assets/images/contract.png" id="i4"
+                                                              styleClass="icon"/>
+                                                </af:panelGroupLayout>
+                                            </af:panelGroupLayout>
+                                        </af:panelGroupLayout>
+                                    </af:panelGroupLayout>
+                                    <af:panelGroupLayout id="pgl11" styleClass="col-lg-3">
+                                        <af:panelGroupLayout id="pgl18" styleClass="card">
+                                            <af:panelGroupLayout id="pgl20" styleClass="card-body">
+                                                <af:outputText value="إجمالي الأصول" id="ot5" styleClass="title"/>
+                                                <af:panelGroupLayout id="pgl21" styleClass="d-flex">
+                                                    <af:outputText value="30215" id="ot6" styleClass="text"/>
+                                                    <af:image source="/assets/images/contract.png" id="i2"
+                                                              styleClass="icon"/>
+                                                </af:panelGroupLayout>
+                                            </af:panelGroupLayout>
+                                        </af:panelGroupLayout>
+                                    </af:panelGroupLayout>
+                                </af:panelGroupLayout>
+                            </af:panelGroupLayout>
+                        </af:panelGroupLayout>
+                        <!--<af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"/>-->
+                    </f:facet>
+                </af:pageTemplate>
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>

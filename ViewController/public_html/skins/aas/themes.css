@@ -1,0 +1,148 @@
+/*blue*/
+ 
+ 
+
+
+.blue-theme .hail-header-wrapper {
+    background-color: #545686;
+}
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+ 
+
+.blue-theme .hail-service:nth-child(2n+1) {
+    background-color: #666a9c;
+}
+
+.blue-theme .hail-service:nth-child(2n+2) {
+    background-color: #08b1e3;
+}
+
+
+
+
+
+
+
+
+
+
+
+.blue-theme .hail-second-footer {
+    background-color: #767fb7;
+    
+}
+.blue-theme .hail-second-footer p {
+    
+    color: #fff;
+}
+
+
+
+.blue-theme .hail-search-btn{ color: #5bd9ff;}
+.blue-theme  .hail-menu > li:hover {
+    background-color: #666A9C;
+}
+.blue-theme .hail-green-bg:hover,.blue-theme .hail-gray-bg:hover,.blue-theme .hail-help-icons span:hover{
+
+ background-color: #f3c200;
+}
+
+ 
+.blue-theme .xra.p_AFCore.p_AFDefault,.blue-theme  .xrb.p_AFCore.p_AFDefault,.blue-theme  .xra.p_AFHighlight.p_AFDefault, .blue-theme .hail-HijriCalendar ,.blue-theme .logInWrapper{
+    background-color: #04BFF6  !important;
+}
+
+.blue-theme ._bullet2:hover, .blue-theme ._bullet2.selected, .blue-theme ._bullet:hover, .blue-theme ._bullet.selected, .blue-theme  .hail-menu-bar,.blue-theme .hail-ADFmenu,           .blue-theme  .x7j, .blue-theme .x7k, .blue-theme .x7l, .blue-theme .portlet-form-button,.blue-theme  .xd4 {
+    background-color: #666A9C !important;
+}
+
+.blue-theme span.hail-announc-date,.blue-theme .xdj.x1ni .x5s a.x1nj i,.blue-theme .hail-dashBoardUser i,.blue-theme .hijriDate     ,         .blue-theme  .xzy.p_AFSelected .xzv,.blue-theme  .xpi .xzv.p_AFSelected, .blue-theme .xzy:hover .xzv{
+    color: #04bff6;
+}
+
+.blue-theme .hail-ADFmenu div > a:hover ,.blue-theme .hail-green-bg:hover, .blue-theme .hail-gray-bg:hover,.blue-theme  .hail-menu-bar.selected,.blue-theme  .x7j:hover,.blue-theme   .x7k:hover, .blue-theme  .x7l:hover, .blue-theme  .portlet-form-button:hover,.blue-theme   .xd4:hover {
+ background-color: #f3c200  !important;
+ 
+}
+
+
+
+
+/*purple*/
+ 
+ 
+ 
+ 
+ 
+ .purple-theme .hail-header-wrapper {
+    background-color: #0c0121;
+}
+.purple-theme .hail-service:nth-child(2n+1) {
+    background-color: #221260;
+}
+
+.purple-theme .hail-service:nth-child(2n+2) {
+    background-color: #eba40a;
+}
+
+.purple-theme ._bullet2:hover, .purple-theme ._bullet2.selected, .purple-theme ._bullet:hover, .purple-theme ._bullet.selected {
+    background-color: #200783;
+}
+
+ 
+
+.purple-theme .hail-second-footer {
+    background-color: #0c0121;
+    
+}
+.purple-theme .hail-second-footer p {
+    
+    color: #fff;
+}
+
+ 
+.purple-theme .hail-search-btn{ color: #481bad;}
+.purple-theme  .hail-menu > li:hover {
+    background-color: #FFFFFF;
+}
+.purple-theme .hail-green-bg:hover,.purple-theme .hail-gray-bg:hover,.purple-theme .hail-help-icons span:hover{
+
+ background-color: #1953aa;
+}
+
+
+
+
+
+
+.purple-theme .xra.p_AFCore.p_AFDefault,.purple-theme  .xrb.p_AFCore.p_AFDefault,.purple-theme  .xra.p_AFHighlight.p_AFDefault, .purple-theme .hail-HijriCalendar {
+    background-color: #1953aa  !important;
+}
+
+.purple-theme ._bullet2:hover, .purple-theme ._bullet2.selected, .purple-theme ._bullet:hover, .purple-theme ._bullet.selected, .purple-theme  .hail-menu-bar,.purple-theme .hail-ADFmenu,.purple-theme .logInWrapper ,    .purple-theme  .x7j, .purple-theme .x7k, .purple-theme .x7l, .purple-theme .portlet-form-button,.purple-theme  .xd4    {
+    background-color: #FFFFFF !important;
+}
+
+.purple-theme span.hail-announc-date,.purple-theme .xdj.x1ni .x5s a.x1nj i,.purple-theme .hail-dashBoardUser i,.purple-theme .hijriDate,         .purple-theme  .xzy.p_AFSelected .xzv,.purple-theme  .xpi .xzv.p_AFSelected, .purple-theme .xzy:hover .xzv{
+    color: #1953aa;
+}
+
+.purple-theme .hail-ADFmenu div > a:hover ,.purple-theme .hail-green-bg:hover, .purple-theme .hail-gray-bg:hover,.purple-theme  .hail-menu-bar.selected {
+ background-color: #1953aa  !important;
+ 
+}
+.purple-theme  .x7j:hover, .purple-theme .x7k:hover, .purple-theme .x7l:hover, .purple-theme .portlet-form-button:hover,.purple-theme  .xd4:hover {
+ background-color: #1953aa  !important;
+}
+ 

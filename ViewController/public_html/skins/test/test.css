@@ -1,0 +1,17 @@
+/**ADFFaces_Skin_File / DO NOT REMOVE**/
+@namespace af "http://xmlns.oracle.com/adf/faces/rich";
+@namespace dvt "http://xmlns.oracle.com/dss/adf/faces";
+
+
+
+.AFDefaultFontFamily:alias
+{
+   font-family: 'Droid Arabic Kufi', serif;
+   
+}
+.x141
+{
+    
+  background-color: Red; 
+  background-image: none;
+}

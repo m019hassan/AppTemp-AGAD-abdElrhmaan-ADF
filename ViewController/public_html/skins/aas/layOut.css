@@ -1,0 +1,136 @@
+@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+*{
+padding: 0;
+margin: 0;
+border:0;
+}
+body
+{
+background-image: url("images/hail-bg.jpg") !important;
+    background-repeat: no-repeat !important;
+    background-size: cover;
+    font-family: 'Droid Arabic Kufi',serif !important;
+  
+   
+}
+a{ font-family: 'Droid Arabic Kufi',serif !important;}
+.hail-wrapper {
+    margin: 0 auto;
+    width: 1200px;
+}
+.hail-header{
+
+display: inline-block;
+}
+.hail-logo {
+border-radius: 0 0 25px 25px;
+    background:   #244041;
+    float: right;
+    padding: 15px 25px;
+}
+
+.hail-sys {
+border-radius: 0 0 0 25px;
+    background:   #418888;
+    color: #FFFFFF;
+    float: right;
+    font-size: 20px;
+    padding: 20px 0;
+    text-align: center;
+    width: 295px;
+}
+.hail-log-details {
+ border-radius: 0 0 0 25px;
+    background:  #FFFFFF;
+    float: right;
+    width: 595px;
+     padding: 16px 0;
+}
+.hail-log-details li:first-child {
+    border-right: 0 none;
+}
+.hail-log-details li {
+    float: right;
+    font-size: 14px;
+    list-style: none outside none;
+    margin: 0 5px;
+    padding: 0 40px 0 0;
+      position: relative; border-right: 1px solid #efefef;
+     background: url("images/hail-header-icons.png") no-repeat  95% -7px  ; 
+}
+.hail-log-details li a{
+font-size: 14px;
+color: #333333;
+text-decoration: none;
+}
+.hail-log-details li span {
+    background:  #6EC822;
+    border-radius: 15px;
+    color: #FFFFFF;
+    height: 20px;
+    line-height: 20px;
+    padding: 5px;
+    position: absolute;
+    right: 6px;
+    text-align: center;
+    top: 0;
+    width: 20px;
+}
+.hail-welcom{
+
+}
+.hail-changePass{
+background-position:  95% -45px !important  ;
+}
+
+.hail-note {
+    background-position: 60% -84px !important;
+    padding-right: 70px !important;
+}
+.hail-signOut{
+background-position:   95% -122px  !important ;
+}
+.hail-breadCrumb {
+    height: 30px;
+    margin: 5px 0 15px;
+       background: url("images/hail-breadCrumb.png") no-repeat right top;
+       display: none;
+}
+.hail-content{ 
+display: table;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    min-height: 450px;
+    } 
+.hail-right-side{
+width:314px;
+margin-left:30px;
+float: right;
+}
+.hail-left-side{
+  float: right;
+    width: 856px;
+}
+.hail-footer {
+ border-radius: 25px 25px 0 0;
+    background:   #32817E;
+    color: #FFFFFF;
+    padding: 20px;
+    font-size: 15px;
+}
+
+.searchBtn {
+    background: none repeat scroll 0 0 #F88227;
+    color: #FFFFFF;
+    font-size: 16px;
+    left: -7px;
+    padding: 10px 25px;
+    position: relative;
+    cursor: pointer;
+}
+.searchPanel{
+ padding: 20px 10px ;
+  display:none;
+}
+table{width:100% !important}
+ 

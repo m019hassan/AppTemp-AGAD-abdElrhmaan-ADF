@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+           xmlns:h="http://java.sun.com/jsf/html">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document title="نظام الاستثمار" id="d1" smallIconSource="/images/AmanaLogo.png"
+    styleClass="login-page" >
+  <af:form id="f1">
+       <af:panelGroupLayout id="pt_pgl1" styleClass="form-login m-3 m-lg-0">
+                <af:panelGroupLayout id="pt_pgl2">
+                    <af:panelGroupLayout id="pt_pgl3" styleClass="logo-header">
+                        <af:image styleClass="" source="/images/HailRegionLogo.svg" id="pt_i1"/>
+                    </af:panelGroupLayout>
+                    <af:panelGroupLayout id="pt_pgl4" styleClass="form">
+                            <af:panelGroupLayout id="pgl1" styleClass="input-group-login">
+                                <af:inputText id="pt_it2" styleClass="username" required="true"
+                                              requiredMessageDetail="يجب ادخال اسم المستخدم" value="#{loginBean.userID}"
+                                              autoSubmit="true" simple="true" placeholder="اسم المستخدم"/>
+                                <af:image source="/images/icon/user-icon.svg" id="i1"/>
+                            </af:panelGroupLayout>
+                            <af:panelGroupLayout id="pgl2" styleClass="input-group-login">
+                                <af:inputText id="pt_it1" styleClass="password" secret="true" required="true"
+                                              requiredMessageDetail="يجب ادخال كلمة المرور"
+                                              
+                                              value="#{loginBean.userPass}" autoSubmit="true" simple="true"
+                                              placeholder="كلمة المرور"/>
+                                <af:image source="/images/icon/lock-icon.svg" id="i2"/>
+                            </af:panelGroupLayout>
+                            <!--<af:link text="Forget Password?" id="pt_l1"/>-->
+                        <af:button text="Login" id="pt_b1" styleClass="mt-3" action="#{loginBean.doLogin1}"/>
+                    </af:panelGroupLayout>
+                </af:panelGroupLayout>
+            </af:panelGroupLayout>
+      </af:form>
+    
+      
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:test-->
+</jsp:root>

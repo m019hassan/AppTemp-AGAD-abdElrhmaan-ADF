@@ -1,0 +1,1031 @@
+@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+
+body {
+    font-family: 'Droid Arabic Kufi', serif;
+    direction: rtl;
+    background-color: #fff !important;
+    background-image:none  !important; 
+
+
+}
+
+* {
+    border: 0;
+    padding: 0;
+    margin: 0;
+     font-family: 'Droid Arabic Kufi',serif;
+}
+ label{color:#000 !important;font-weight: bold}
+.theme-btns {
+   
+    left: 5%;
+    position: absolute;
+    top: 106px;
+    width: 80px;
+    z-index: 11111111;
+}
+
+.theme-btns span {
+    display: inline-block;
+    float:left;
+     overflow: hidden;
+    text-indent: -999em;
+    width: 33.33%;
+}
+.theme-btns span:hover{
+    cursor:pointer;
+}
+.hail-purple-theme {
+       background-color: #221260;
+    
+}
+.hail-blue-theme {
+        background-color: #08B1E3;
+ 
+}
+.hail-green-theme {
+    background-color:  #279736;
+     
+}
+.hail-help-icons {
+
+    background-color: #131313;
+    background-image: url("images/Hail-dark2-transparent-bg.png");
+    background-position: -610px 78px;
+    background-repeat: no-repeat;
+    /*height: 198px;*/
+    left: 0;
+    position: absolute;
+    top: 250px;
+    width: 80px;
+    z-index: 111111;
+}
+.hail-help-icons > span:first-child{ border-top: 0;}
+.hail-help-icons > span {
+    height: 40px;
+    border-top: 1px solid #AAB1A6;
+    color: #fff;
+    display: block;
+    font-size: 12px;
+    padding: 10px 5px;
+    text-align: center;
+    width:70px;
+}
+.hail-help-icons span:hover{
+    background-color: #279736;
+}
+.hail-help-icons span i{
+     display: block;
+   color: #FFFFFF;
+   font-size: 20px;
+   
+}
+.hail-search {
+    margin-top: 20px;
+}
+/* .hail-header-wrapper,.hail-menu-bar,  .hail-body-wrapper */
+.hail-menu-bar-wrapper,.hail-ADFmenu div > a,.hail-ADFmenu,.hail-help-icons,.hail-help-icons i,.hail-help-icons span,.caption h1,.hail-services > h2 i,.hail-services > h2,.hail-search-btn, .hail-first-footer h2, .hail-first-footer a , .hail-first-footer , .hail-services-tabs > span:hover,  .hail-services-tabs > span.selected, .ticker-content, .ticker-content,   .ticker-title, .ticker-wrapper,     .hail-logo span, .haill-show-all, .hail-services-tabs > span, .hail-service a, .hail-service span, .hail-service h2, .hail-services-tabs-content div, .hail-subMenu, .hail-search input[type="text"], .hail-menu > li:hover > a, .hail-menu > li  {
+        -webkit-transition: all 500ms ease-in-out;
+        -moz-transition: all 500ms ease-in-out;
+        -ms-transition: all 500ms ease-in-out;
+        -o-transition: all 500ms ease-in-out;
+        transition: all 500ms ease-in-out;
+    }
+  
+.hail-header-wrapper {
+    display: table;
+    /*padding: 11px 0;*/
+    width: 100%;
+    /*background: url('images/Hail-repeated-bg.jpg') repeat 0 0;
+    background:   url('images/Hail-repeated-bg.jpg') repeat 0 0;*/
+    background-image: url("images/Hail-dark-transparent-bg.png"), url('images/Hail-repeated-bg.png');
+    background-position: left bottom;
+    background-repeat: no-repeat,repeat-x;
+    background-color: #131313;
+     position :relative;
+     top:0;
+     z-index: 1;
+}
+
+.hail-menu-wrapper {
+    margin-right: 20px;
+    width: 38%;
+}
+
+.hail-header-wrapper a, .hail-first-footer a {
+    text-decoration: none;
+}
+.hail-logo{
+width:280px;
+}
+.hail-logo span {
+    color: #ffffff;
+    font-size: 16px;
+    right: 96px;
+    top: 50px;
+    
+}
+/*menu*/
+.hail-menu-wrapper ul, .hail-first-footer ul {
+    list-style: none;
+}
+
+.hail-menu > li {
+    float: right;
+    /*margin: 0 30px;*/
+     padding: 34px 4%;
+    border-bottom: 10px solid transparent;
+}
+
+    .hail-menu > li > a {
+        float: right;
+        color: #FFFFFF!important;
+        font-size: 14px !important;
+    }
+
+    .hail-menu > li:hover {
+        background-color: #15a728;
+        /*border-bottom-color: #15a728;*/
+    }
+
+        .hail-menu > li:hover > a i {
+            /*color: #15a728;*/
+        }
+
+.hail-subMenu {
+    background: url('images/Hail-sub-menu-bg.jpg') no-repeat left bottom #e6e6e6;
+    opacity: 0;
+    visibility: hidden;
+    padding: 40px 0;
+    position: absolute;
+    right: 0;
+    top: 105px;
+    width: 100%;
+    z-index: 1111;
+}
+
+.hail-menu > li:hover .hail-subMenu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hail-subMenu h2 {
+    color: #131313;
+}
+
+.hail-first-footer h2 {
+    color: #8a8a8a;
+    margin-bottom: 15px;
+}
+
+.hail-subMenu h2, .hail-first-footer h2 {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.hail-subMenu a {
+    color: #626262 !important;
+    line-height: 35px;
+}
+
+  .hail-subMenu.hail-sys li {
+    display: inline-block;
+    margin: 0 20px;
+      
+}
+.hail-first-footer a {
+    color: #fff !important;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.hail-subMenu a, .hail-first-footer a {
+    font-size: 14px !important;
+}
+
+
+.hail-subMenu > div {
+    border-right: 1px solid #C2C2C2;
+}
+
+.hail-subMenu > div, .hail-first-footer > div > div {
+    float: right;
+    padding: 0 16px;
+}
+
+    .hail-subMenu > div:first-child, .hail-first-footer > div > div:first-child {
+        border-right: 0 none;
+    }
+
+.hail-subMenu table, .hail-first-footer table {
+    /*width: 355px;*/
+}
+/*search*/
+
+.hail-search-btn {
+    cursor: pointer;
+    height: 21px;
+    margin-top: 8px;
+    width: 21px;
+    color: #289a37;
+    font-size: 25px;
+}
+
+.hail-search input[type="text"] {
+    background: transparent;
+    font-family: 'Droid Arabic Kufi', serif;
+    color: #FFFFFF;
+    padding: 5px;
+    width: 120px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+    .hail-search input[type="text"]:focus {
+        background: #fff;
+        color: #000;
+        width: 180px;
+    }
+/*body*/
+.hail-body-wrapper {
+   background: #dedfde; /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2RlZGZkZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUyJSIgc3RvcC1jb2xvcj0iI2YxZjJmMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top,  #dedfde 0%, #f1f2f1 52%, #ffffff 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dedfde), color-stop(52%,#f1f2f1), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #dedfde 0%,#f1f2f1 52%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #dedfde 0%,#f1f2f1 52%,#ffffff 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #dedfde 0%,#f1f2f1 52%,#ffffff 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #dedfde 0%,#f1f2f1 52%,#ffffff 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dedfde', endColorstr='#ffffff',GradientType=0 ); /* IE6-8 */
+
+    min-height: 600px;
+    margin-top: 0px;
+}
+
+
+.hail-amana-systems {
+    background: url('images/Hail-amana-systems-bg.jpg') no-repeat top center;
+    background-size: cover;
+    height: 600px;
+}
+
+.hail-services {
+    /*padding: 0px 20px 20px;*/
+}
+
+    .hail-services > h2 {
+        color: #131313;
+        font-size: 18px;
+        padding: 0px 20px;
+        top: -22px;
+         
+        background-position: 0 -91px;
+        background-color: #ebeceb;
+    }
+
+    .hail-amana-systems .hail-services > h2{
+
+         background-color: transparent;
+    }
+
+        .hail-services > h2 i {
+            color: #15A728;
+        }
+
+.hail-services-tabs {
+    top: -22px;
+    left: 40px;
+}
+
+    .hail-services-tabs > span {
+        padding: 5px 10px;
+        color: #131313;
+        font-size: 13px;
+        float: right;
+        background:#ebeceb;
+    }
+
+        .hail-services-tabs > span:hover, .hail-services-tabs > span.selected {
+            background: url("images/Hail-bright-transparent-bg.png") no-repeat scroll -590px 0 #393939;
+            color: #FFFFFF;
+            cursor: pointer;
+        }
+
+.hail-services-tabs-content > div:first-child {
+    display: block;
+}
+
+.hail-services-tabs-content > div {
+    display: none;
+    width: 100%;
+}
+
+.hail-service {
+    background-image: url("images/Hail-bright-transparent-bg.png");
+    background-repeat: no-repeat;
+    background-position: -700px 0px;
+    padding: 0 1%;
+    display: table-cell;
+    height: 250px;
+    width: 290px;
+    vertical-align: top;
+}
+
+ .hail-service:nth-child(2n+1) {
+    background-color: #279736;
+}
+  .hail-service:nth-child(2n+2) {
+    background-color: #545554;
+}
+.hail-service
+    .hail-service a i {
+        margin-left: 5px;
+    }
+
+
+    .hail-service:hover {
+         width: 700px;
+        background-position: -550px 0;
+    }
+
+    .hail-service > div {
+        overflow: hidden;
+        height: 100%;
+    }
+
+    .hail-service h2, .hail-service div > span {
+        position: relative;
+        top: 0;
+        right: 0;
+    }
+
+   
+
+
+
+
+    .hail-service h2 {
+        text-align: center;
+        color: #FFFFFF;
+        font-size: 18px;
+        font-weight: normal;
+    }
+
+    .hail-service:hover span {
+        right: -120px;
+    }
+
+    .hail-service:hover h2 {
+        right: 40px;
+        top: -120px;
+    }
+
+
+
+    .hail-service:nth-child(1) span {
+        background-position: -879px 0;
+        width: 60px;
+    }
+
+    .hail-service:nth-child(2) span {
+        background-position: -780px 0;
+    }
+
+    .hail-service:nth-child(3) span {
+        background-position: -690px 0;
+        /*height: 100px;*/
+    }
+
+    .hail-service:nth-child(4) span {
+        background-position: -597px 0;
+        /*height: 88px;*/
+    }
+
+    .hail-service a {
+        color: #FFFFFF !important;
+        display: block;
+        font-size: 14px;
+        text-decoration: none;
+        position: absolute;
+        bottom: -60px;
+    }
+
+.hail-service .hail-services-knowledge {
+        color: #FFFFFF !important;
+        display: block;
+        font-size: 14px;
+        text-decoration: none;
+        position: absolute;
+        top: 260px;
+    }
+    
+    
+a.hail-services-knowledge, a.hail-services-video {
+    right: 0px;
+}
+
+a.hail-services-more {
+    left: 0;
+}
+
+.hail-services-more i {
+    float: left;
+    font-size: 22px;
+    margin-right: 5px;
+}
+
+.hail-service:hover .hail-services-knowledge {
+    top: 140px;
+}
+
+.hail-service:hover a.hail-services-video {
+    bottom: 30px;
+}
+
+.hail-service:hover a.hail-services-more {
+    bottom: 10px;
+    font-size: 10px;
+}
+
+.haill-show-all {
+    background-image: url("images/Hail-bright-transparent-bg.png");
+    background-position: -590px 0;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    font-size: 14px;
+    padding: 10px 30px;
+    text-decoration: none;
+}
+
+
+
+/*footer*/
+.hail-first-footer {
+    background: url("images/Hail-dark-transparent-bg.png") no-repeat scroll -230px 0 #222222;
+    height: 260px;
+    padding: 23px 0;
+}
+
+.hail-second-footer {
+    background: url("images/Hail-dark2-transparent-bg.png") no-repeat scroll left bottom #131313;
+    padding: 10px 0;
+}
+
+    .hail-second-footer p {
+        color: #ABABAB;
+        font-size: 12px;
+    }
+
+/**/
+.hail-fl {
+    float: left;
+}
+
+.hail-fr {
+    float: right;
+}
+
+.hail-fn {
+    float: none;
+}
+
+.hail-w1200 {
+    width: 90%;
+}
+
+.hail-w100prc {
+    width: 100%;
+}
+
+.hail-align-center {
+    margin: 0 auto;
+}
+
+.hail-pa {
+    position: absolute;
+}
+
+.hail-pr {
+    position: relative;
+}
+
+.hail-dib {
+    display: inline-block;
+}
+.hail-dt{
+    display: table;
+}
+
+input, a {
+    outline: none;
+}
+
+.hail-ml7 {
+    margin-left: 7px;
+}
+
+.hail-mt80 {
+    margin-top: 80px;
+}
+
+.hail-mt60 {
+    margin-top: 60px;
+}
+
+.hail-mt20 {
+    margin-top: 20px;
+}
+
+.hail-gray-border {
+    border: 1px solid #ACACAC;
+}
+
+.hail-pt80 {
+    padding-top: 80px;
+}
+
+/*.hail-grdient-slic {
+    background-image: url('images/Hail-grdient-slic.png');
+    
+}*/
+
+.hail-green-bg {
+    background-color: #279736;
+}
+
+.hail-purple-bg {
+    background-color: #221260;
+}
+
+.hail-bright-purple-bg {
+    background-color: #666a9c;
+}
+
+.hail-orange-bg {
+    background-color: #eba40a;
+}
+
+.hail-blue-bg {
+    background-color: #08b1e3;
+}
+
+.hail-pale-blue-bg {
+    background-color: #545686;
+}
+
+.hail-dark-purple-bg {
+    background-color: #0c0121;
+}
+
+.hail-gray-bg {
+    background-color: #545554;
+}
+
+.hail-dark-gray-bg {
+    background-color: #070707;
+}
+
+.hail-green-bg:hover, .hail-gray-bg:hover,.hail-menu-bar.selected {
+    background-color: #000;
+}
+.hail-page-title {
+    border-bottom: 1px solid #D4D4D4;
+    color: #313131;
+    font-size: 32px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+.hail-menu-bar-wrapper{
+ position:absolute;
+    right: -270px;
+    top: 130px;
+    z-index: 1111;
+}
+.hail-menu-bar-wrapper.open{
+    right: 0px;
+}
+.hail-menu-bar {
+    background-image: url("images/Hail-bright-transparent-bg.png");
+    background-position: -604px 30px;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 30px;
+    padding: 10px;
+    margin-top: 50px;
+    
+   
+}
+
+.hail-ADFmenu {
+    background-image: url("images/Hail-bright-transparent-bg.png");
+    background-position: -794px bottom;
+    background-repeat: no-repeat;
+    background-color: #279736 ;
+    min-height: 500px;
+    padding: 10px ;
+    position: relative;
+    top: -24px;
+    width: 250px;
+}
+.hail-ADFmenu > h1 {
+    color: #FFFFFF;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.hail-ADFmenu div > .af_showDetailItem a {
+    color: #FFFFFF;
+    display: block;
+    font-family: 'Droid Arabic Kufi',serif;
+    font-size: 14px;
+    padding: 5px 25px 5px 20px;
+    
+  
+}
+.hail-ADFmenu div > .af_showDetailItem a i {
+    margin-left: 5px;
+}
+.hail-ADFmenu div > a:hover {
+background-color: #196223;
+text-decoration: none;
+}
+.alternativeRow td {
+    background-color: #F6F6F6 !important;
+}
+select { border: 1px solid #D8D5D5 !important;}
+
+/**/
+ .hail-service div > span {
+       /* background-image: url("images/Hail-icons.png");
+        background-position: 0 0;
+        background-repeat: no-repeat;*/
+        display: table;
+        height: 88px;
+        margin: 40px auto 30px;
+        
+       text-align: center;
+    }
+.hail-service span > i {
+    color: #FFFFFF;
+    font-size: 70px;
+}
+.hail-help-icons a {
+    color: #FFFFFF !important;
+}
+.hail-dashBoardUser i {
+    border: 1px solid;
+    border-radius: 31px;
+    color: #269334;
+    font-size: 30px;
+    padding: 10px 13px;
+    text-align: center;
+}
+.hail-dashBoardUser > h2 {
+    margin-bottom: 20px;
+}
+.hail-announcement {
+ 
+    
+}
+span.hail-announc-date
+{
+  margin-left: 5px;
+  color:#55b205;
+}
+.hail-updateProfile{
+    background-color: #FFFFFF;
+    border: 1px solid #D6D6D6;
+    float: right;
+  
+    width: 327px;
+}
+.hail-updateProfile i{
+   background-color: #279736;
+    background-image: url("/Projects/skins/aas/images/Hail-bright-transparent-bg.png") !important;
+    background-position: -630px 0;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    float: right;
+    font-size: 50px;
+    padding: 57px 50px;
+     
+}
+.hail-updateProfile a > span {
+    display: inline-block;
+    font-size: 24px;
+    line-height: 35px;
+      margin: 41px 23px 0 0;
+    text-align: center;
+    width: 144px;
+}
+.hail-updateProfile a{
+ color: #000000 !important;
+    display: inline-block;
+    font-size: 23px !important;
+    line-height: 33px;
+    
+    text-align: center;
+    text-decoration: none !important;
+    
+} 
+.hail-instructions {
+    float: right;
+   margin-bottom: 30px;
+    width: 327px;
+}
+.hail-calender {
+    
+}
+.hail-dashBoard-wrapper > div:first-child {
+    margin-right: 0;
+}
+.hail-dashBoard-wrapper > div {
+    float: right;
+    margin-right: 1.5%;
+    width: 32.3%;
+}
+
+.hail-HijriCalendar{
+  background-color: #279736;
+    background-image: url("/Projects/skins/aas/images/Hail-bright-transparent-bg.png") !important;
+    background-position: -490px 0;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    height: 70px;
+    padding: 10px;
+}
+.hijriDate {
+    background-color: #FFFFFF;
+    border-radius: 60px;
+    color: #279736;
+    float: right;
+    font-family: tahoma;
+    font-size: 32px;
+    font-weight: bold;
+   /* margin-right: 6px;*/
+    padding: 15px;
+}
+.hijriDay {
+    float: right;
+    font-size: 36px;
+    margin-right: 10px;
+    position: relative;
+    top: -10px;
+}
+.hijriMonth, .hijriYear {
+    float: right;
+    font-size: 14px;
+    margin: 0 3px;
+    position: relative;
+    right: -99px;
+    top: 46px;
+}
+.fulldate {
+   font-size: 18px;
+    left: 10px;
+    position: absolute;
+    top: 26px;
+}
+.hail-search-btn button {
+    background: none   0px 0px transparent !important;
+    font-size: 22px !important;
+    padding: 0 !important;
+}
+.hail-search-btn button:hover {
+    background-color: transparent !important;
+     
+}
+.hail-userInfo {
+     clear: left;
+    float: left;
+    margin-top: 11px;
+}
+.hail-userInfo li {
+  float: left;
+    list-style: none outside none;
+    margin: 5px 10px;
+}
+.hail-userInfo i {
+     color: #FFFFFF;
+    float: right;
+    font-size: 20px;
+    margin-left: 10px;
+    
+}
+.hail-userInfo a {
+   color: #FFFFFF !important;
+    float: right;
+    font-size: 10px !important;
+}
+
+
+.hail-sys ul{
+    -webkit-column-count: 8; /* Chrome, Safari, Opera */
+    -moz-column-count: 8; /* Firefox */
+    column-count: 8;
+    
+     -webkit-column-rule: 1px solid #C2C2C2 ;/* Chrome, Safari, Opera */
+    -moz-column-rule: 1px solid #C2C2C2; /* Firefox */
+    column-rule: 1px solid #C2C2C2;
+
+
+
+}
+
+.user-small {
+    right: 15px;
+    top: 10px;
+    border-radius: 50%;
+    /*background-image: url('medium_default.png');*/
+    display:block;
+    height:60px;
+    width:60px;
+    float:right;
+    margin:20px;
+}
+.comment {
+    width:100%;
+    display:block;
+     color:#717070;
+    background-color:#fbfbfb;
+  
+   border:0px solid red;
+   text-align:right;
+   font-family:'Droid Arabic Kufi';
+  
+   font-size:12px;
+ -moz-box-shadow: 0 0 5px #888;
+-webkit-box-shadow: 0 0 5px#888;
+box-shadow: 0 0 5px #888;
+min-height:100px;
+   
+}
+.comment-content {
+     margin:20px 0px 0px 20px;
+   padding:5px;
+}
+
+h5 {
+    font-size:15px;
+     font-family:'Droid Arabic Kufi';
+     color:#0ba4fc;
+}
+.comment-date {
+    text-align:left;
+    color:#808080;
+    font-size:12px;
+    display:block;
+   padding-left:10px;
+   padding-bottom:5px;
+   
+}
+ 
+ 
+.IconLink {
+width: 142px;
+background-color: #FFFFFF;
+text-decoration: none;
+
+border: 1px solid #B8B4B4;
+background: #F4FFFF;
+border-radius: 7px; 
+}
+
+    .IconLink:hover {
+        border: 1px solid #74D0E4;
+        -moz-box-shadow: 0px 10px 14px -8px #74D0E4;
+        -webkit-box-shadow: 0px 10px 14px -8px #74D0E4;
+        box-shadow: 0px 10px 14px -8px #74D0E4;
+        background-image: url('/mat/skins/aas/images/Corner0.png');
+        background-repeat: no-repeat;
+        color:#eeeb0a;
+        text-decoration: none;
+    }
+
+.green-bg {
+    background: #8bc34a!important;
+    background: -moz-linear-gradient(top,#8bc34a 0%,#689f38 100%)!important;
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#8bc34a),color-stop(100%,#689f38))!important;
+    background: -webkit-linear-gradient(top,#8bc34a 0%,#689f38 100%)!important;
+    background: -o-linear-gradient(top,#8bc34a 0%,#689f38 100%)!important;
+    background: -ms-linear-gradient(top,#8bc34a 0%,#689f38 100%)!important;
+    background: linear-gradient(to bottom,#8bc34a 0%,#689f38 100%)!important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$green-color',endColorstr='$green-color-dark',GradientType=0)!important;
+}
+
+.main-box {
+    background: #FFFFFF;
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+    margin-bottom: 16px;
+    border-radius: 3px;
+    background-clip: padding-box;
+}
+
+.infographic-box .colored .headline {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.infographic-box .headline {
+    display: block;
+    font-size: 1.2em;
+    font-weight: 300;
+    text-align: right;
+}
+
+.infographic-box .value {
+    font-size: 30px;
+    font-weight: 600;
+    margin-top: -5px;
+    display: block;
+    text-align: right;
+}
+
+
+.ulwedget {
+            display: -webkit-inline-box;/*inline-flex;*/
+            width: 112%;
+            list-style: none;
+            margin: 20px 0px 20px 0px;
+            position: relative;
+            left: 57px;
+        }
+
+.ulwedget li {
+    width: 32%;
+    display: block;
+    margin: 5px;
+}
+
+
+.linkWedget {
+    text-decoration: none;
+}
+
+.red-bg {
+    background: #e84e40!important;
+    background: -moz-linear-gradient(top,#e84e40 0%,#dd191d 100%)!important;
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#e84e40),color-stop(100%,#dd191d))!important;
+    background: -webkit-linear-gradient(top,#e84e40 0%,#dd191d 100%)!important;
+    background: -o-linear-gradient(top,#e84e40 0%,#dd191d 100%)!important;
+    background: -ms-linear-gradient(top,#e84e40 0%,#dd191d 100%)!important;
+    background: linear-gradient(to bottom,#e84e40 0%,#dd191d 100%)!important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$red-color',endColorstr='$red-color-dark',GradientType=0)!important;
+}
+
+.iconNumber {
+    font-size: 36px;
+    position: relative;
+    display: block;
+    left: -10px;
+    color: #E6453A;
+    top: -11px;
+    background: #F1F2F1;
+    text-align: center;
+    width: 92px;
+    border-radius: 50%;
+    padding: 27px 0px;
+}
+
+
+.iconwedget {
+    display: inline;
+    left: 0px;
+    position: relative;
+    display: block;
+    float: left;
+    font-size: 83px;
+    padding-top: 6px;
+}
+
+
+.myTitleAnimation {
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+    -webkit-animation: rotateCarouselRightIn 3s both ease;
+    animation: rotateCarouselRightIn 3s both ease;
+}
+
+.greencolor {
+    color: #8bc34a !important;
+}
+
+.emerald-bg {
+    background: #03a9f4!important;
+    background: -moz-linear-gradient(top,#03a9f4 0%,#2980b9 100%)!important;
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#03a9f4),color-stop(100%,#2980b9))!important;
+    background: -webkit-linear-gradient(top,#03a9f4 0%,#2980b9 100%)!important;
+    background: -o-linear-gradient(top,#03a9f4 0%,#2980b9 100%)!important;
+    background: -ms-linear-gradient(top,#03a9f4 0%,#2980b9 100%)!important;
+    background: linear-gradient(to bottom,#03a9f4 0%,#2980b9 100%)!important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$primary-color',endColorstr='#2980b9',GradientType=0)!important;
+}
+
+.bluecolor {
+    color: #03a9f4 !important;
+}
+
+ 

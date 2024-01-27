@@ -1,0 +1,1651 @@
+@charset "UTF-8";
+
+/**ADFFaces_Skin_File / DO NOT REMOVE**/
+@namespace af "http://xmlns.oracle.com/adf/faces/rich";
+@namespace dvt "http://xmlns.oracle.com/dss/adf/faces";
+
+@font-face
+{
+  font-family: "JF Flat Light";
+  src: url('fonts/JF-Flat-light.eot');
+  src: url('fonts/JF-Flat-light.eot?#iefix')format('embedded-opentype'), url('fonts/JF-Flat-light.svg#JF Flat Light')format('svg'), url('fonts/JF-Flat-light.woff')format('woff'), url('fonts/JF-Flat-light.ttf')format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face
+{
+  font-family: "JF Flat Regular";
+  src: url('fonts/JF-Flat-regular.eot');
+  src: url('fonts/JF-Flat-regular.eot?#iefix')format('embedded-opentype'), url('fonts/JF-Flat-regular.svg#JF Flat Regular')format('svg'), url('fonts/JF-Flat-regular.woff')format('woff'), url('fonts/JF-Flat-regular.ttf')format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face
+{
+  font-family: "JF Flat Medium";
+  src: url('fonts/JF-Flat-medium.eot');
+  src: url('fonts/JF-Flat-medium.eot?#iefix')format('embedded-opentype'), url('fonts/JF-Flat-medium.svg#JF Flat Medium')format('svg'), url('fonts/JF-Flat-medium.woff')format('woff'), url('fonts/JF-Flat-medium.ttf')format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+/***************/
+/* Font Roboto */
+/***************/
+@font-face
+{
+  font-family: 'Roboto';
+  src: url('fonts/Roboto-Meduim.ttf');
+  font-weight: 500;
+}
+
+/*@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800');*/
+/**reset**/
+*
+{
+  outline: none;
+}
+
+a
+{
+  cursor: pointer;
+}
+/******************************/
+/****** panelAccordion ********/
+/******************************/
+af|panelSplitter::pane
+{
+  border-radius: 0px;
+}
+
+af|panelAccordion.menu
+{
+  background-color: #122F3B;
+  font-family: 'Roboto', sans-serif, 'JF Flat Medium'
+}
+
+af|panelAccordion.menu::header-subsequent:first-child, af|panelAccordion.menu::header:first-child
+{
+  border-top: 1px solid #2f3e92;
+}
+
+af|panelAccordion.menu::header-subsequent, af|panelAccordion.menu::header
+{
+  height: 50px !important;
+  line-height: 30px;
+  background-image: none !important;
+  border: none;
+  border-bottom: 1px solid #2f3e92;
+  padding: 8px 5px 8px 10px;
+  transition: all 0.15s ease-in-out;
+}
+
+af|panelAccordion.menu::header-subsequent:hover, af|panelAccordion.menu::header:hover
+{
+  background-color: #101b58;
+  cursor: pointer;
+}
+
+af|panelAccordion.menu::header-title, .AFPanelBoxHeaderCoreDefault:alias
+{
+  background-image: none;
+  font-weight: normal;
+  font-size: 11pt;
+  color: #d2d9ff;
+  font-family: 'Roboto', sans-serif, 'JF Flat Medium';
+  cursor: pointer !important;
+  vertical-align: middle;
+}
+
+af|panelAccordion::body-content
+{
+  background-color: #122F3B;
+  border: 0px;
+}
+
+af|panelAccordion.menu af|showDetailItem af|commandImageLink
+{
+  color: #bfc9ff;
+  display: block;
+  padding: 15px 15px 15px 10px;
+  border-bottom: 1px solid #2c2f3f;
+  box-sizing: border-box;
+  width: 100%;
+  text-decoration: none;
+  transition: all 0.15s ease-in-out;
+}
+
+af|panelAccordion.menu af|showDetailItem
+{
+  background-color: #122F3B;
+}
+
+af|panelAccordion.menu af|showDetailItem af|commandImageLink:hover
+{
+  text-decoration: none;
+  background-color: #21173a;
+}
+
+af|commandImageLink:hover af|commandImageLink::text
+{
+  text-decoration: none;
+}
+
+af|panelAccordion.menu af|showDetailItem af|commandImageLink:before
+{
+  content: ' ';
+  width: 7px;
+  height: 7px;
+  background-color: #122F3B;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  border-radius: 50%;
+}
+
+af|panelAccordion.menu af|showDetailItem af|commandImageLink:hover:before
+{
+  background-color: #fff;
+}
+/*af|showDetail::header-text
+{
+  font-weight: bolder;
+  font-size: 9pt;
+  font-family: 'Roboto', sans-serif,'JF Flat Medium';
+  vertical-align: middle;
+  cursor: pointer !important;
+}*/
+/******************************/
+/****** panelAccordion ********/
+/******************************/
+af|outputLabel, af|selectOneListbox::content, af|selectOneRadio::content, .fieldLabel, af|outputText
+{
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif, 'JF Flat Medium';
+  font-weight: 500;
+}
+
+af|selectOneChoice::content
+{
+  font-size: 9pt;
+  color: #333;
+  font-family: 'Open Sans', sans-serif, 'JF Flat Medium';
+  height: 34px;
+  padding-left: 10px;
+}
+
+af|selectOneChoice::content:read-only
+{
+  font-size: 9pt;
+  font-family: 'Open Sans', sans-serif, 'JF Flat Medium';
+  background-image: none;
+}
+
+.AFLabel:alias
+{
+  font-size: 9pt;
+  font-family: 'Open Sans', sans-serif, 'JF Flat Medium';
+  color: #4682b4;
+  font-weight: bolder;
+}
+
+af|commandToolbarButton
+{
+  color: #333;
+}
+
+af|commandToolbarButton, af|button
+{
+  background-color: #007c89;
+  padding: 3px 7px;
+  border: 0px;
+  background-image: none !important;
+  text-shadow: none;
+}
+
+af|button
+{
+  color: #fff;
+}
+
+af|button:hover, .af_button:hover
+{
+  border: 0px !important;
+  color: #fff !important;
+  background: #05616b;
+  cursor: pointer;
+}
+
+af|button::text:hover
+{
+  cursor: pointer;
+}
+
+af|button:depressed:hover
+{
+  border: 0px;
+  background-image: -webkit-linear-gradient(top, #FFE4A8 0%, #ffb000 100%);
+}
+
+af|button:disabled
+{
+  background: #ddd;
+  color: #555;
+  border: none;
+}
+
+af|button:hover:disabled
+{
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+af|button
+{
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 9pt;
+  font-family: 'Roboto', sans-serif, 'JF Flat Medium';
+  background-image: none;
+  background: #4a1f4f;
+  font-weight: normal;
+  color: #FFF;
+  border: 0px;
+  line-height: 28px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  text-shadow: none;
+}
+
+af|button:hover
+{
+  font-family: 'Roboto', sans-serif, 'JF Flat Medium' !important;
+  background-image: none;
+}
+
+.af_commandToolbarButton.p_AFDepressed, .af_commandToolbarButton.p_AFSelected, .af_commandToolbarButton.p_AFSelected:active, .af_button.p_AFDepressed, .af_button.p_AFSelected, .af_button.p_AFSelected:active, .af_button:active, .af_resetButton:active, .af_goButton:active, .af_dialog_footer-button:active, .af_query_button:active, .AFNoteWindowAllButton:active, .af_commandToolbarButton.p_AFDepressed:hover, .af_commandToolbarButton.p_AFSelected:hover, .af_commandToolbarButton.p_AFSelected:active:hover, .af_button.p_AFSelected:hover, .af_button.p_AFSelected:active:hover, .af_resetButton:active:hover, .af_goButton:active:hover, .af_dialog_footer-button:active:hover, .af_query_button:active:hover, .AFNoteWindowAllButton:active:hover, .af_button:active:hover:focus, .af_resetButton:active:hover:focus, .af_goButton:active:hover:focus, .af_dialog_footer-button:active:hover:focus, .af_query_button:active:hover:focus, .AFNoteWindowAllButton:active:hover:focus
+{
+  border: 0px;
+  background-image: none;
+  outline: 0px;
+  color: #fff;
+  font-family: 'Roboto', sans-serif, 'JF Flat Medium';
+}
+
+af|button:disabled
+{
+  color: #FFF;
+  background: #CCC;
+  border: 0px;
+}
+
+af|button:disabled:hover, .af_button.p_AFDisabled:hover
+{
+  color: #FFF;
+  background-image: none;
+  background: #888 !important;
+  cursor: not-allowed;
+  font-family: 'Roboto', sans-serif, 'JF Flat Medium';
+  border: 0;
+}
+
+af|inputListOfValues, af|inputComboboxListOfValues
+{
+  -tr-stretch-search-dialog: true;
+}
+
+af|inputComboboxListOfValues::content,
+af|inputText::content, af|inputDate::content,
+af|inputListOfValues::content, 
+af|selectOneListbox::content, 
+af|selectManyCheckbox::content, 
+af|inputNumberSpinbox::content
+{
+  font-size: 9pt;
+  color: #555;
+  font-family: 'Open Sans', sans-serif, 'JF Flat Medium';
+  background-image: none !important;
+  background-repeat: no-repeat;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  background-color: #FFF;
+  border-radius: 5px;
+  border-color: #ccc;
+  border-width: 1px;
+  height: 34px;
+  padding: 5px 12px;
+  box-sizing: border-box;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+af|inputComboboxListOfValues::content
+{
+  border: 1px solid #ccc;
+  box-shadow: none;
+}
+
+af|inputComboboxListOfValues::container
+{
+  height: 34px !important;
+  border: none;
+  background-color: transparent;
+}
+
+af|inputText:focus
+{
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+}
+
+af|inputText:disabled af|inputText::content, af|inputDate:disabled af|inputDate::content, af|inputListOfValues:disabled af|inputListOfValues::content, af|selectOneListbox:disabled af|selectOneListbox::content, af|selectManyCheckbox:disabled af|selectManyCheckbox::content, af|inputNumberSpinbox:disabled af|inputNumberSpinbox::content
+{
+  background-color: #eee;
+  border-color: #ccc;
+}
+
+af|chooseDate::spinbox-content
+{
+  height: 20px;
+  padding: 5px;
+}
+
+af|selectOneChoice::content
+{
+  font-size: 12pt;
+  color: #555;
+  font-family: 'Open Sans', sans-serif, 'JF Flat Medium';
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border-color: rgb(82, 36, 111);
+  border-width: 1px;
+  font-weight: bold;
+}
+
+.AFDefaultFontFamily:alias:rtl
+{
+  font-family: 'Open Sans', sans-serif, 'JF Flat Medium';
+  font-size: 10pt;
+}
+
+.AFDefaultFontFamily:alias:ltr
+{
+  font-family: 'Open Sans', sans-serif, 'JF Flat Medium';
+  font-size: 10pt;
+}
+
+.AFDefaultFont:alias
+{
+  font-family: 'Open Sans', sans-serif, 'JF Flat Medium';
+  font-size: 10pt;
+}
+
+.AFRequiredIconStyle
+{
+  color: #ff0000;
+}
+
+.loginLabel
+{
+  color: #4682b4;
+  font-weight: bolder;
+  font-family: 'Open Sans', sans-serif, 'JF Flat Medium';
+  font-size: 20px;
+}
+
+a.link2:link
+{
+  font-size: 14pt;
+}
+
+a.link2:visited
+{
+  color: white;
+}
+
+a.link2:hover
+{
+  text-decoration: none;
+  color: yellow;
+}
+
+a.link2:active
+{
+  background: #0a1b77;
+  color: #ababab;
+}
+
+a.link3:link
+{
+  text-decoration: none;
+  color: white;
+  font-weight: bolder;
+  font-size: 9pt;
+}
+
+a.link3:visited
+{
+  text-decoration: none;
+  color: white;
+  font-size: 9pt;
+}
+
+a.link3:hover
+{
+  text-decoration: underline;
+  color: red;
+  font-size: 9pt;
+}
+
+a.link3:active
+{
+  text-decoration: none;
+  font-size: 9pt;
+}
+
+a.link4:link
+{
+  text-decoration: none;
+  color: Black;
+  font-weight: bolder;
+  font-size: 9pt;
+}
+
+a.link4:visited
+{
+  text-decoration: none;
+  color: Black;
+  font-size: 9pt;
+}
+
+a.link4:hover
+{
+  text-decoration: underline;
+  color: red;
+  font-size: 9pt;
+}
+
+a.link4:active
+{
+  text-decoration: none;
+  font-size: 9pt;
+}
+
+a.link5:link
+{
+  text-decoration: none;
+  color: black;
+  font-size: 9pt;
+}
+
+a.link5:visited
+{
+  text-decoration: none;
+  color: black;
+  font-size: 9pt;
+}
+
+a.link5:hover
+{
+  text-decoration: underline;
+  color: #e5007b;
+  font-size: 9pt;
+  background-color: #e5e5e5;
+  width: 150px;
+  background-size: 150px;
+  cursor: pointer;
+}
+
+a.link5:active
+{
+  text-decoration: none;
+  font-size: 9pt;
+  background-color: #e5e5e5;
+}
+
+af|column::column-header-cell
+{
+  color: #333;
+  border: thin White;
+  font-weight: bold;
+  border-color: White;
+  padding: 0px;
+  vertical-align: middle;
+}
+
+af|column::column-header-cell-content
+{
+  background-color: #3a4172;
+  color: #ddd;
+  border: thin White;
+  text-align: center;
+  vertical-align: middle;
+  font-family: 'Open Sans', sans-serif, 'JF Flat Medium';
+  font-size: 8pt;
+  border-color: White;
+  height: 40px;
+  /*line-height: 40px;*/
+
+  padding-top: 14px;
+  padding-bottom: 0px;
+  /*min-width: 120px;*/
+
+  box-sizing: border-box;
+}
+/**************************************
+************** Table ******************
+***************************************/
+af|table.t50 af|column::column-header-cell-content
+{
+  alignment-adjust: central;
+}
+
+af|table.t30 af|column::column-header-cell-content
+{
+}
+
+af|table af|column::data-cell
+{
+  color: #555;
+  padding: 0px 5px;
+  background: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgb(237, 237, 237);
+  border-bottom: 1px solid rgb(237, 237, 237);
+  border: none;
+  font-size: 9pt;
+  height: 28px;
+  line-height: 28px;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif, 'JF Flat Medium';
+}
+
+af|table af|column::data-cell
+{
+  color: #555;
+  padding: 0px 5px;
+  background: #e6f0f9;
+  border-top: 1px solid rgb(237, 237, 237);
+  border-bottom: 1px solid rgb(237, 237, 237);
+  border: none;
+  font-size: 9pt;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif, 'JF Flat Medium';
+}
+
+af|table af|column::banded-data-cell
+{
+  color: #555;
+  background: #FFF;
+  padding: 0px 5px;
+  /*transition: all 0.3s ease-in-out;*/
+
+  border-top: 2px solid #FFF;
+  border-bottom: 2px solid #FFF;
+  border: none;
+  font-size: 9pt;
+  height: 28px;
+  line-height: 28px;
+  box-sizing: border-box;
+}
+
+af|table::data-row:selected af|column::data-cell
+{
+  color: #333;
+  font-size: 9pt;
+  font-weight: normal;
+  font-family: 'Open Sans', sans-serif, 'JF Flat Medium';
+  border-top: 1px solid rgba(0, 87, 146, 0.3);
+  border-bottom: 1px solid rgba(0, 87, 146, 0.3);
+  background-color: rgba(0, 87, 146, 0.3);
+}
+
+af|table::data-row:selected:focused af|column::data-cell, af|table::data-row:selected:focused af|column::banded-data-cell, af|table::data-row:selected:inactive af|column::data-cell, af|table::data-row:selected:inactive af|column::banded-data-cell, af|table::data-row:selected:active af|column::data-cell, af|table::data-row:selected:active af|column::banded-data-cell, af|table::data-row:active
+{
+  color: white;
+  font-weight: normal;
+  border-top: 1px solid rgba(0, 87, 146, 0.5);
+  border-bottom: 1px solid rgba(0, 87, 146, 0.5);
+  font-family: 'Open Sans', sans-serif, 'JF Flat Medium';
+  border: none;
+  font-size: 9pt;
+  background-color: rgba(0, 87, 146, 0.70);
+}
+
+.af_table_data-table-VH-lines .af_column_data-cell, .af_table_data-table-VH-lines .af_column_banded-data-cell
+{
+  border-right: 1px solid rgba(19, 51, 76, 0.1) !important;
+}
+/*input in tabel */
+af|column::column-filter-cell af|inputText::content, af|column::column-filter-cell af|inputDate::content, af|column::column-filter-cell af|inputListOfValues::content, af|column::column-filter-cell af|selectOneListbox::content, af|column::column-filter-cell af|selectManyCheckbox::content, af|column::column-filter-cell af|selectOneChoice::content, af|column::column-filter-cell af|inputNumberSpinbox::content, af|column::column-filter-cell af|inputComboboxListOfValues::content, af|table af|column::data-cell af|inputText::content, af|table af|column::data-cell af|inputDate::content, af|table af|column::data-cell af|inputListOfValues::content, af|table af|column::data-cell af|selectOneListbox::content, af|table af|column::data-cell af|selectManyCheckbox::content, af|table af|column::data-cell af|selectOneChoice::content, af|table af|column::data-cell af|inputNumberSpinbox::content, af|table af|column::data-cell af|inputComboboxListOfValues::content, af|table af|column::banded-data-cell af|inputText::content, af|table af|column::banded-data-cell af|inputDate::content, af|table af|column::banded-data-cell af|inputListOfValues::content, af|table af|column::banded-data-cell af|selectOneListbox::content, af|table af|column::banded-data-cell af|selectManyCheckbox::content, af|table af|column::banded-data-cell af|selectOneChoice::content, af|table af|column::banded-data-cell af|inputComboboxListOfValues::content, af|table af|column::banded-data-cell af|inputNumberSpinbox::content
+{
+  height: 25px !important;
+}
+
+af|column::banded-data-cell af|inputText:read-only af|inputText::content, af|column::data-cell af|inputText:read-only af|inputText::content
+{
+  color: #1f0684de;;
+  font-weight: 500;
+}
+
+af|table::data-row:selected:focused af|column::banded-data-cell af|inputText:read-only af|inputText::content, af|table::data-row:selected:inactive af|column::banded-data-cell af|inputText:read-only af|inputText::content, af|table::data-row:selected:active af|column::banded-data-cell af|inputText:read-only af|inputText::content, af|table::data-row:selected:focused af|column::data-cell af|inputText:read-only af|inputText::content, af|table::data-row:selected:inactive af|column::data-cell af|inputText:read-only af|inputText::content, af|table::data-row:selected:active af|column::data-cell af|inputText:read-only af|inputText::content
+{
+  color: #fff
+}
+/* Button in table */
+af|table af|button
+{
+  height: 24px;
+  line-height: 24px;
+  font-size: 9pt;
+  padding: 0px 6px;
+  background: #18588a;
+}
+
+af|table af|button af|button::icon-style
+{
+  height: 22px;
+}
+
+af|table::data-row:selected:focused af|column::banded-data-cell af|outputLabel, af|table::data-row:selected:inactive af|column::banded-data-cell af|outputLabel, af|table::data-row:selected:focused af|column::data-cell af|outputLabel, af|table::data-row:selected:inactive af|column::data-cell af|outputLabel
+{
+  color: #FFF;
+}
+/**************** Tabel *****************/
+af|document, body
+{
+  background-image: #333;
+  background-color: white;
+  font-family: 'Open Sans', sans-serif, 'JF Flat Medium';
+  font-size: 9pt;
+}
+
+.headerTable
+{
+  background-image: url("images/topHeaderBg.jpg");
+  background-repeat: repeat-x;
+}
+
+.loginTable
+{
+  border: groove medium;
+  border-radius: 18px;
+}
+
+.redOutputText
+{
+  background-color: rgb(255, 66, 66);
+  border-color: Black;
+  border-style: solid;
+  border-width: thin;
+  color: rgb(255, 66, 66);
+}
+
+.greenOutputText
+{
+  background-color: Lime;
+  border-color: Black;
+  border-style: solid;
+  border-width: thin;
+  color: Lime;
+}
+
+af|inputText:read-only::content
+{
+  color: #1f0684;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: none;
+}
+
+af|inputText:disabled::content, af|inputText:disabled, af|inputDate:disabled::content, af|inputText:read-only::content input[disabled='disabled'], input:disabled, af|selectOneChoice:disabled::content
+{
+  color: #555;
+  /*background-color: #eee;
+    border: 1px solid #ccc;*/
+
+  font-size: 9pt;
+  font-family: 'Open Sans', sans-serif, 'JF Flat Medium';
+  cursor: not-allowed;
+}
+
+.ui_labelAlign:rtl
+{
+  text-align: right;
+  color: #4682b4;
+  font-size: 14px;
+  font-weight: normal;
+  font-family: 'Open Sans', sans-serif, 'JF Flat Medium';
+}
+
+.ui_labelAlign:ltr
+{
+  text-align: left;
+  color: #4682b4;
+  font-size: 14px;
+  font-weight: normal;
+  font-family: 'Open Sans', sans-serif, 'JF Flat Medium';
+}
+
+.ui_fieldAlign:ltr
+{
+  text-align: left;
+}
+
+.ui_fieldAlign:rtl
+{
+  text-align: right;
+  font-family: 'Open Sans', sans-serif, 'JF Flat Medium';
+}
+
+.menu
+{
+  background-image: url('images/mmbgcontainer.png');
+  background-repeat: repeat-x;
+}
+
+.infobar1
+{
+  color: #FFF;
+  font-weight: normal;
+  font-size: 11pt;
+  text-transform: capitalize;
+}
+
+af|button.infobar1
+{
+  width: 40px !important;
+  padding: 0px 2px;
+  background: #eee;
+  height: 28px;
+  line-height: 20px;
+  box-sizing: border-box;
+  border-radius: 30px;
+}
+
+af|button.infobar1:hover
+{
+  background: #fff;
+  cursor: pointer;
+}
+
+.infobar1 img
+{
+  width: 35px;
+}
+
+.infobar2
+{
+  color: #fff;
+  font-weight: 500;
+  padding: 5px 11px;
+  border-radius: 15px;
+  font-size: 10pt;
+  background-color: #a72e0a;
+  border: 1px solid #a72e0a;
+}
+
+.infobar3
+{
+  color: black;
+  font-weight: bolder;
+}
+
+.infobar4
+{
+  color: rgb(187, 0, 98);
+  font-weight: bolder;
+}
+
+af|dvt-graphFootnote, af|dvt-graphSubtitle, af|dvt-graphTitle, af|dvt-o1Title, af|dvt-x1Title, af|dvt-y1Title, af|dvt-y2Title, af|dvt-pieLabel, af|dvt-legendTitle, af|dvt-legendText, af|dvt-markerText, af|dvt-o1TickLabel, af|dvt-x1TickLabel, af|dvt-y1TickLabel, af|dvt-y2TickLabel, af|dvt-annotation, af|dvt-sliceLabel, af|dvt-tooltips
+{
+  -tr-font-weight: bold;
+  -tr-font-size: 16pt;
+}
+
+af|tree::collapsed-icon
+{
+  content: url("images/tree_close.png");
+  color: blue;
+  cursor: default;
+}
+
+af|tree::expanded-icon
+{
+  content: url("images/tree_open.png");
+  color: blue;
+  cursor: default;
+}
+
+af|tree::node-anim-icon
+{
+  content: '*';
+  color: red;
+  cursor: default;
+}
+
+af|tree::leaf-icon
+{
+  content: url('/images/leaf.png');
+  width: 9px;
+  height: 9px;
+}
+
+af|tree::selector-icon
+{
+  content: '*';
+  cursor: default;
+}
+
+af|tree::collapsed-icon-style
+{
+  -tr-inhibit: background-image;
+  padding-right: 0px;
+}
+
+af|tree::expanded-icon-style
+{
+  -tr-inhibit: background-image;
+  padding-right: 0px;
+}
+
+af|tree::leaf-icon-style
+{
+  -tr-inhibit: background-image;
+  padding-right: 0px;
+}
+
+af|tree::node-anim-icon-style
+{
+  -tr-inhibit: background-image;
+  padding-right: 0px;
+}
+
+af|tree::selector-icon-style
+{
+  -tr-inhibit: background-image;
+}
+
+input:hover, select:hover, textarea:hover
+{
+  border-color: #009dff;
+  /*background: #DFE9EC;
+    color: #414848;*/
+}
+
+input:focus, select:focus, textarea:focus
+{
+  background: white;
+  color: #333;
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+}
+
+.AFPanelBoxHeaderCoreDefault:alias:disclosed, .AFPanelBoxHeaderCoreDefault:disabled
+{
+  background-color: #21173a;
+}
+@agent (touchScreen:none)
+{
+  af|button
+  {
+    display: block;
+    font-size: 10pt;
+    text-align: center;
+    vertical-align: middle;
+    padding: 2px 6px 2px 6px;
+    background: #4a1f4f;
+    color: White;
+    font-weight: normal;
+    border: 0px;
+  }
+  af|button img
+  {
+    /*width: 18px;*/
+  }
+  af|button:hover
+  {
+    display: block;
+    font-size: 10pt;
+    text-align: center;
+    vertical-align: middle;
+    background: rgb(19, 81, 131);
+    color: white;
+    font-weight: normal;
+    border: 0px;
+    font-family: 'Roboto', sans-serif, 'JF Flat Medium';
+  }
+  af|button:active:hover
+  {
+    background-image: none;
+    border: none;
+    color: #fff;
+    font-family: 'Roboto', sans-serif, 'JF Flat Medium';
+  }
+  af|button:disabled
+  {
+    border: 0px;
+    display: block;
+    font-size: 10pt;
+    text-align: center;
+    vertical-align: middle;
+    background: #ccc !important;
+    color: black;
+    font-weight: normal;
+  }
+}
+
+
+.tableFormStyle
+{
+  background-color: #f7f7f7;
+  outline-style: groove;
+  outline-width: 0px;
+  outline-color: Gray;
+}
+
+.lang_img_ar
+{
+  background: url("images/lang_img_ar.png")no-repeat scroll center top rgba(0, 0, 0, 0) !important;
+  border-left: medium none !important;
+  display: block;
+  height: 28px;
+  width: 72px;
+  margin-left: 5px;
+  margin-right: -9px;
+}
+
+.lang_img_ar:hover
+{
+  border-top: 0 !important;
+  background: url(images/lang_img_ar.png)bottom center no-repeat !important;
+}
+
+.lang_img_en
+{
+  background: url("images/lang_img_en.png")no-repeat scroll center top rgba(0, 0, 0, 0) !important;
+  border-left: medium none !important;
+  display: block;
+  height: 28px;
+  width: 72px;
+  margin-left: 5px;
+  margin-right: -9px;
+}
+
+.lang_img_en:hover
+{
+  border-top: 0 !important;
+  background: url(images/lang_img_en.png)bottom center no-repeat !important;
+}
+
+.AFDisclosedIconStyle
+{
+  background-image: url("images/tree_close.png");
+  color: blue;
+  cursor: default;
+}
+/*
+af|menu::bar-item
+{
+  background-color: #fe9515; 
+  color: white; 
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  height: 30px;
+}
+*/
+af|dialog af|menu::bar-item
+{
+  background-color: #2b7abe;
+  padding: 4px 8px;
+}
+
+af|dialog af|menu::bar-item:highlighted
+{
+  background-color: #185d98;
+  padding: 4px 8px;
+}
+
+af|menuBar
+{
+  height: auto;
+  /*width: 100%;*/
+}
+
+af|menu::bar-item:hover af|menu::bar-item-text
+{
+  color: #333
+}
+
+af|menu::bar-item-content
+{
+  /*padding: 8px 12px;*/
+}
+
+af|menu::bar-item-text
+{
+  color: #333;
+}
+
+af|menuBar::item:hover af|menu::bar-item-text
+{
+  color: #333;
+}
+/*af|menu::bar-item-open-icon-style{
+    padding-left: 15px;
+    padding-right: 15px;
+}*/
+af|commandMenuItem
+{
+  color: white;
+}
+
+af|commandMenuItem::bar-item-text
+{
+  color: #ffffff;
+}
+
+af|commandMenuItem::menu-item
+{
+  background-color: #4682b4;
+}
+
+af|commandMenuItem::menu-item-text
+{
+  color: #ffffff;
+}
+
+af|commandMenuItem:highlighted::menu-item-text
+{
+  color: #000000;
+}
+/********************/
+/**** Panel Box *****/
+/********************/
+af|panelBox
+{
+  border: 0px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  overflow: hidden;
+}
+
+af|panelBox::table
+{
+  padding: 8px 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border: none;
+  padding: 8px 10px !important;
+}
+
+af|panelBox::header-element
+{
+  font-size: 11pt;
+  font-weight: normal;
+  font-family: 'Roboto', sans-serif, 'JF Flat Medium';
+}
+
+af|panelBox::undisclosed-icon-style, af|panelBox::disclosed-icon-style
+{
+  cursor: pointer;
+}
+
+af|panelBox::header-text
+{
+  color: #ffffff;
+  background-image: none;
+}
+
+af|panelBox::header-element
+{
+  color: #ffffff;
+}
+
+af|panelBox::center
+{
+  padding: 5px 7px 2px 5px;
+}
+
+af|column::column-header-table
+{
+  border-color: white;
+}
+
+af|column::row-column-header-cell
+{
+  border-color: White;
+  border: thin;
+}
+
+af|inputListOfValues::dialog af|dialog::content-center, af|inputComboboxListOfValues::dialog af|dialog::content-center
+{
+  min-width: 500px;
+  min-height: 500px;
+}
+
+der::title0, af|showDetailHeader::title0, af|query::title0
+{
+  background-color: #E7E7E7;
+}
+/*-----------------------------**
+********** Panel Tabbed *********
+**-----------------------------*/
+af|panelTabbed
+{
+  margin-top: 15px;
+  -tr-tab-bar-height: 2.5em;
+  height: 2.5em;
+}
+
+af|panelTabbed::tab-content-inner
+{
+  line-height: 2.5em;
+}
+
+af|panelTabbed::tab:selected af|panelTabbed::tab-content, af|navigationPane-tabs::tab:selected af|navigationPane-tabs::tab-content
+{
+  background-color: #FFF;
+  border-left-color: #122F3B;
+  border-right-color: #122F3B;
+  border-top-color: #122F3B !important;
+}
+
+af|panelTabbed::tab-content
+{
+  background-color: #122F3B;
+  border-left-color: #122F3B;
+  border-right-color: #122F3B;
+  border-top-color: #122F3B;
+}
+
+af|panelTabbed::body
+{
+  background-color: #fff;
+  border-color: #122F3B;
+}
+
+af|panelTabbed:iconified af|panelTabbed::tab:selected af|panelTabbed::tab-content
+{
+  background-color: #5252FF;
+  border-color: Fuchsia;
+}
+
+af|panelTabbed::tab af|panelTabbed::tab-text-link:disabled
+{
+  color: #777;
+}
+
+af|panelTabbed::tab:disabled:hover af|panelTabbed::tab-text-link:disabled
+{
+  color: #555;
+}
+
+af|panelTabbed::tab af|panelTabbed::tab-text-link
+{
+  color: #FFF;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+af|panelTabbed::tab:hover af|panelTabbed::tab-text-link
+{
+  color: #FFF;
+}
+
+af|panelTabbed::tab:selected af|panelTabbed::tab-text-link
+{
+  color: #2B85AC;
+  transition: all 0.3s ease-in-out;
+}
+
+af|panelTabbed::tab:selected:hover af|panelTabbed::tab-text-link
+{
+  color: #041577;
+}
+
+af|panelTabbed::tab:disabled af|panelTabbed::tab-content, af|navigationPane-tabs::tab:disabled af|navigationPane-tabs::tab-content
+{
+  background-color: #ddd;
+  border-left-color: #ddd;
+  border-right-color: #ddd;
+  border-top-color: #ddd;
+}
+
+af|panelTabbed:iconified af|panelTabbed::tab:disabled af|panelTabbed::tab-content, af|panelTabbed:iconified af|panelTabbed::tab:disabled:hover af|panelTabbed::tab-content
+{
+  background-color: #005252;
+  border-color: #E7E7E7;
+}
+
+af|panelTabbed::tab-content, af|navigationPane-tabs::tab-content
+{
+  background-color: #00F7F7;
+  border-left-color: #4284FF;
+  border-right-color: #4284FF;
+  border-top-color: #4284FF;
+}
+
+af|panelTabbed::tab-content
+{
+  background-color: #ddd;
+}
+
+af|panelTabbed::tab-content
+{
+  background-color: #122F3B;
+}
+
+af|panelTabbed:iconified af|panelTabbed::tab-content
+{
+  background-color: #00F7F7;
+  border-color: #4284FF;
+}
+
+af|navigationPane-tabs::header af|navigationPane-tabs::tab:selected af|navigationPane-tabs::tab-content, af|panelTabbed::header af|panelTabbed::tab:selected af|panelTabbed::tab-content
+{
+  border-top-color: Fuchsia;
+}
+/*-----------------------------**
+****** End Panel Tabbed *********
+**-----------------------------*/
+.lang_img_ar
+{
+  background: url("images/lang_img_ar.png")no-repeat scroll center top rgba(0, 0, 0, 0) !important;
+  border-left: medium none !important;
+  display: block;
+  height: 28px;
+  width: 72px;
+  margin-left: 5px;
+  margin-right: -9px;
+}
+
+.lang_img_ar:hover
+{
+  border-top: 0 !important;
+  background: url(images/lang_img_ar.png)bottom center no-repeat !important;
+}
+
+.lang_img_en
+{
+  background: url("images/lang_img_en.png")no-repeat scroll center top rgba(0, 0, 0, 0) !important;
+  border-left: medium none !important;
+  display: block;
+  height: 28px;
+  width: 72px;
+  margin-left: 5px;
+  margin-right: -9px;
+}
+
+.lang_img_en:hover
+{
+  border-top: 0 !important;
+  background: url(images/lang_img_en.png)bottom center no-repeat !important;
+}
+
+af|panelSplitter::horizontal-divider, af|panelSplitter::vertical-divider
+{
+  background-color: #122F3B;
+}
+
+af|panelHeader::content0, af|showDetailHeader::content0, af|query::content0
+{
+  background-color: #fff;
+}
+
+af|inputListOfValues::search-icon-style
+{
+  border: none;
+}
+
+.af_query_criteria
+{
+  max-height: 150px;
+}
+
+af|inputListOfValues::search-icon-style
+{
+  background-color: transparent;
+  border: 0;
+}
+
+.af_query_criterion-label
+{
+  font-size: 9pt;
+  font-family: 'Open Sans', sans-serif, 'JF Flat Medium';
+  color: rgb(70, 130, 180);
+  font-weight: bolder;
+  text-align: left;
+  white-space: nowrap;
+  padding: 0px 6px 0px 0px;
+}
+
+af|column::data-cell af|panelWindow af|inputText::content
+{
+  width: 100% !important;
+}
+/* btn-lang */
+af|commandLink.btn-lang
+{
+  border: 1px solid #eee;
+  padding: 0px 10px;
+  display: block;
+  border-radius: 15px;
+  background: #d2146c;
+  padding: 5px 10px 0px;
+}
+/* btn logout */
+af|commandLink.btn-nav-logout
+{
+  padding: 5px 18px;
+  background: #0d2086;
+  border-radius: 15px;
+  margin-right: 15px;
+  display: inline-flex;
+  line-height: 20px;
+  font-size: 9pt;
+  color: #FFF;
+}
+
+af|commandLink.btn-nav-logout::context, af|commandLink.btn-nav-logout::context:hover
+{
+  font-size: 9pt
+}
+
+af|dialog
+{
+  -tr-default-content-width: -1;
+  -tr-default-content-height: -1;
+  /* max-width: 40vw !important;*/
+}
+
+af|panelWindow af|table, af|dialog af|table
+{
+  /*max-height: 40vh;*/
+}
+
+af|dialog af|table
+{
+  max-height: 350px !important;
+  /*overflow: scroll ;*/
+}
+
+.table-process af|column::column-header-cell-content
+{
+  height: 20px;
+  padding-top: 10px;
+}
+
+.table-year af|column::column-header-cell-content, .table-month af|column::column-header-cell-content
+{
+  height: 20px;
+  background: #0a2133;
+  text-align: left;
+  padding-left: 7px;
+  padding-top: 5px;
+}
+/* commandMenuItem */
+af|commandMenuItem::menu-item
+{
+  height: 30px;
+  line-height: 30px;
+  box-sizing: border-box;
+  background-color: #4682b4;
+}
+
+af|commandMenuItem:highlighted af|commandMenuItem::menu-item
+{
+  cursor: pointer;
+}
+
+af|commandMenuItem:disabled af|commandMenuItem::menu-item-text
+{
+  color: #eee;
+  cursor: not-allowed;
+}
+
+.af_panelBox_center.p_AFCore.p_AFDefault
+{
+  background-color: #FFF;
+}
+
+af|column::sort-ascending-icon-style
+{
+  background-image: url("/afr/skyros-v1/colSort_asc_ena.png");
+  flex-line-pack: center;
+  margin: 10px 0px 0px 0px;
+}
+
+af|column::sort-descending-icon-style
+{
+  margin: 10px 0px 0px 0px;
+}
+/* enquiries screen */
+af|panelTabbed.tab-enquiries af|panelTabbed::body
+{
+  max-height: 350px;
+  overflow: auto;
+}
+/* enquiries screen */
+/** af dialog table **/
+.af_dialog .af_table .af_column_data-cell
+{
+  border-bottom: 1px solid #ccc;
+}
+/*. Lov Footer .*/
+af|query::content-footer, .af_query_content-footer
+{
+  position: absolute;
+  right: 20px;
+  /*bottom: -60%;*/
+}
+
+af|inputListOfValues::dialog
+{
+  max-height: 80vh;
+}
+
+af|inputListOfValues::dialog af|table, af|inputListOfValues::dialog .af_table.AFStretchWidth
+{
+  max-height: 50vh;
+}
+/************************ Login ****************************************/
+a
+{
+  text-decoration: none;
+  cursor: pointer;
+}
+/* ----------------------------------------------
+            Start Login Page
+----------------------------------------------*/
+.wrapper
+{
+  min-width: 100%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0px;
+  grid-template-areas: "login featuredMain featuredMain";
+  font-family: 'Tajawal', sans-serif;
+  overflow: hidden;
+}
+
+.featured
+{
+  grid-area: featuredMain;
+  height: 100vh;
+  display: grid;
+  align-content: center;
+  color: #eee;
+  padding: 40px;
+  box-sizing: border-box;
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0)) border-box, url(../../images/bg-login.jpg)no-repeat center right;
+  background-size: cover;
+}
+
+.featured h1
+{
+  max-width: 70%;
+  text-align: center;
+  margin: 0 auto;
+  font-family: arial;
+  color: #FFF;
+  text-shadow: 0px 0px 5px #000;
+}
+
+.featured h1
+{
+  max-width: 50%;
+  text-align: center;
+  margin: 0 auto;
+  font-family: arial;
+  color: #FFF;
+  text-shadow: 0px 0px 5px #000;
+}
+
+.login
+{
+  position: relative;
+  grid-area: login;
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr;
+  grid-gap: 0px;
+  grid-template-areas: "info" "info" "form" "form" "footer-login";
+  background: linear-gradient(rgb(236, 236, 236), rgb(236, 236, 236)) border-box;
+  box-shadow: -6px 0px 5px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.login:before
+{
+  content: " ";
+  width: 270px;
+  height: 230%;
+  position: absolute;
+  top: -100px;
+  left: -250px;
+  background: linear-gradient(to right, rgba(236, 236, 236, 0.56) 0%, rgba(236, 236, 236, 0.85) 30%, rgb(236, 236, 236) 50%) border-box;
+  transform: rotate(6deg);
+  z-index: -1;
+}
+
+.login > div
+{
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.login .info
+{
+  grid-area: info;
+  display: grid;
+  align-content: center;
+}
+
+.login .info .logo
+{
+  width: 42%;
+  border: 2px solid #ed3237;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.login .info .logo img
+{
+  width: 100%;
+}
+
+.info h3
+{
+  text-align: center;
+  margin: 0px 0px 10px 0px;
+  color: #555;
+  font-size: 12pt;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.form
+{
+  grid-area: form;
+  /* background-color: #fff; */
+
+  text-align: center;
+  display: grid;
+  align-content: center;
+}
+
+.form input
+{
+  display: block;
+  padding: 12px 20px;
+  border: 1px solid #8e7798;
+  color: #555;
+  font-size: 14px;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  min-width: 300px;
+  outline: none;
+  text-align: left;
+}
+
+.form .btn-login
+{
+  margin: 0 auto;
+  width: 260px;
+  background: linear-gradient(to right, rgb(58, 4, 70), rgb(98, 29, 138), rgb(68, 3, 82));
+  color: #ffffff;
+  border: none;
+  font-size: 14pt;
+  padding: 12px 20px;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0px 2px 11px rgb(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.footer-login
+{
+  grid-area: footer-login;
+  display: grid;
+  align-content: center;
+  text-align: center;
+  color: #333;
+}
+
+.footer-login p
+{
+  font-size: 14px;
+  text-shadow: 1px 1px 1px rgb(29, 29, 29, 0.3);
+}
+/* ----------------------------------------------
+            End Login Page
+----------------------------------------------*/
+af|dvt-pivotTable::data-cell-focused af|inputComboboxListOfValues::content
+{
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+}
+
+af|inputComboboxListOfValues::dropdown-cell
+{
+  padding: 5px 0px 5px 0px;
+}

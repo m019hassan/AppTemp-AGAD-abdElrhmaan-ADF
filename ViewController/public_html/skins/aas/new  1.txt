@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="نظام متابعة المشاريع" id="d1" >
+        <af:resource type="css" source="/skins/aas/common.css" />
+        <af:resource type="css" source="/skins/aas/logInPage.css" />
+        <af:resource type="css" source="/skins/aas/animate.delay.css" />
+    <af:resource type="css" source="/skins/aas/animate.min.css" />
+        
+        
+        
+        
+            <af:form id="f1" defaultCommand="cb1">
+               <div class="logInWrapper fadeInDown  animate1">
+             
+            
+            
+       
+     <div class="username logo fadeInDown  animate2">   
+      <af:image source="/Images/logo.png" shortDesc="امانه حائل" id="i1"/>
+     </div>
+     
+          <div class="form   fadeInDown  animate4  ">
+  <div class="username">
+    <af:inputText label="اسم المستخدم" id="it1" required="true"
+                                                  requiredMessageDetail="يجب ادخال اسم المستخدم"
+                                                  value="#{AuthenticationBean1.username}"
+                                                 />
+  </div>
+  <div class="password">
+  
+  <af:inputText label="كلمة المرور" id="it2" secret="true" required="true"
+                                                  requiredMessageDetail="يجب ادخال كلمة المرور"
+                                                  value="#{AuthenticationBean1.password}"/>
+  </div>
+  <div class="login">
+        <af:commandButton text="دخول" id="cb1" action="#{AuthenticationBean1.login}"
+                                                      icon="/Images/icon/key.png"/> 
+  </div>
+  
+  
+</div>
+            </div>
+                           
+                         
+                                     
+                                   
+                            
+                            
+            </af:form>
+        </af:document>
+    </f:view>
+    <!--oracle-jdev-comment:preferred-managed-bean-name:test-->
+</jsp:root>

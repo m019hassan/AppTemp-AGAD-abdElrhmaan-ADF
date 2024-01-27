@@ -1,0 +1,841 @@
+/**ADFFaces_Skin_File / DO NOT REMOVE**/
+@namespace af "http://xmlns.oracle.com/adf/faces/rich";
+@namespace dvt "http://xmlns.oracle.com/dss/adf/faces";
+
+
+af|commandButton,af|goButton,af|resetButton,af|table::data-row,.AFFormComponentOutlineError:alias {-webkit-transition: all 500ms ease-in-out;
+        -moz-transition: all 500ms ease-in-out;
+        -ms-transition: all 500ms ease-in-out;
+        -o-transition: all 500ms ease-in-out;
+        transition: all 500ms ease-in-out;}
+        
+af|panelAccordion::body-content {
+    background-image: none;
+    background-color: transparent;
+    border: 0;
+    color: transparent;
+  border-color: transparent; 
+}
+af|panelAccordion::header af|panelAccordion::header-disclose
+{
+  
+  background-color: transparent; 
+  background-image: none; 
+}
+af|panelAccordion::header af|panelAccordion::header-end
+{
+
+  background-color: transparent; 
+  background-image: none; 
+}
+af|panelAccordion::header af|panelAccordion::header-start
+{
+  
+  background-image: none; 
+}
+af|panelAccordion::header af|panelAccordion::header-start:rtl
+{
+  background-image: none; 
+}
+af|panelAccordion::header af|panelAccordion::header-title
+{
+ 
+  background-color: transparent; 
+  background-image: none; 
+}
+af|panelAccordion::header af|panelAccordion::header-toolbar
+{
+  background-color: transparent; 
+  background-image: none; 
+}
+af|panelAccordion::header-subsequent af|panelAccordion::header-disclose
+{
+
+  background-color: transparent; 
+  background-image: none; 
+}
+af|panelAccordion::header-subsequent af|panelAccordion::header-end
+{
+  background-color: transparent; 
+  background-image: none; 
+}
+af|panelAccordion::header-subsequent af|panelAccordion::header-start
+{
+  background-color: transparent; 
+  background-image: none; 
+}
+af|panelAccordion::header-subsequent af|panelAccordion::header-title
+{
+  background-color: transparent; 
+  background-image: none; 
+  
+}
+af|panelAccordion::header-subsequent af|panelAccordion::header-toolbar
+{
+  background-color: transparent; 
+  background-image: none; 
+} 
+af|panelAccordion::header-subsequent:disclosed af|panelAccordion::header-disclose
+{
+  background-image: none; 
+}
+af|panelAccordion::header-subsequent:disclosed af|panelAccordion::header-end
+{
+  background-image: none; 
+}
+af|panelAccordion::header-subsequent:disclosed af|panelAccordion::header-start
+{
+  background-image: none; 
+}
+af|panelAccordion::header-subsequent:disclosed af|panelAccordion::header-title
+{ 
+  background-image: none; 
+}
+af|panelAccordion::header-subsequent:disclosed af|panelAccordion::header-toolbar
+{
+  background-image: none; 
+} 
+af|panelAccordion::header:disclosed af|panelAccordion::header-disclose
+{
+  background-image: none; 
+}
+af|panelAccordion::header:disclosed af|panelAccordion::header-end
+{
+  background-image: none; 
+}
+af|panelAccordion::header:disclosed af|panelAccordion::header-start
+{
+  background-image: none; 
+}
+af|panelAccordion::header:disclosed af|panelAccordion::header-start:rtl
+{
+  background-image: none; 
+}
+af|panelAccordion::header:disclosed af|panelAccordion::header-title
+{
+  background-image: none; 
+   
+}
+af|panelAccordion::header:disclosed af|panelAccordion::header-toolbar
+{
+  background-image: none; 
+}
+.AFPanelAccordionBodyMultipleBackgroundImage:alias {
+  background-image: none; 
+}
+af|panelAccordion h1
+{
+  border:0;
+  margin:10px 0px;
+}
+af|panelAccordion h1 td{
+ border:0;
+}
+af|panelAccordion::header-title
+{
+  color: #fff; 
+  
+   
+   
+   
+  
+}
+af|panelAccordion::header-subsequent af|panelAccordion::header-start {
+  width: 0px;  
+}
+af|panelAccordion::header-end {
+ width: 0px;
+}
+af|panelAccordion::header-subsequent af|panelAccordion::header-start {
+  width: 0px;  
+}
+af|panelAccordion::header af|panelAccordion::header-start {
+ width: 0px;
+}
+/**/ 
+ .AFPanelAccordionHeaderDisclosedBackground:alias td{
+ border: 0 none !important;
+    display: inline-block !important;
+    
+ }
+   .AFUndisclosedIconStyle:alias,.AFUndisclosedIconStyleHover:alias{
+ background-image: url("images/hail-arrows.png");
+background-position: -14px 4px; 
+}
+ .AFDisclosedIconStyle:alias,.AFDisclosedIconStyleHover:alias{
+  background-image: url("images/hail-arrows.png");
+  background-position: 2px 3px;
+}
+/*  /panelAccordion*/
+
+  /*panelBox*/  
+ .AFPanelBoxHeaderEnd:alias{ /*effect in end and start */
+
+   background-image: none !important;
+  background-color: transparent !important;
+  
+}
+ .AFPanelBoxHeaderEndDefault:alias{
+   padding:0px  !important;
+ }
+ .AFPanelBoxHeaderStartDefault:alias{
+   padding:0px  !important;
+ }
+.AFPanelBoxHeaderCenter:alias{
+ background-image: url("images/Hail-bright-transparent-bg.png") !important;
+  background-color: #279736 !important;
+  background-repeat: no-repeat; background-position: -460px 0;
+   padding: 5px;
+  
+ 
+ } 
+.AFPanelBoxFooterEnd:alias{
+ background-image: none !important;
+   background-color: transparent !important; 
+  
+ }	 
+ .AFPanelBoxFooterEndDefault:alias{
+  padding: 0 4px 0 0;
+ }
+ .AFPanelBoxFooterStartDefault:alias{
+  padding: 0  0 0 3px;
+ }
+.AFPanelBoxFooterCenter:alias{
+ background-image: none !important;
+   background-color: #fff !important; 
+    
+ }
+.AFPanelBoxContentCenterDefault:alias
+{
+padding:0 4px;
+border:0px;
+   background-image: none !important;
+ background-color: transparent;
+ position: relative;
+}
+.PanelBoxIcon{
+ color: #FFFFFF;
+    font-size: 22px;
+    position: absolute;
+    right: 24px;
+    top: -36px;
+} 
+af|panelBox::header-text
+{
+font-family: 'Droid Arabic Kufi',serif !important;
+  color:#ffffff;
+  
+   
+} 
+ 
+af|panelBox
+{
+  font-family: 'Droid Arabic Kufi',serif !important; 
+  font: inherit; 
+  padding: 0px 0px 0px 0px; 
+} 
+af|panelBox::header-element
+{
+  font-family: 'Droid Arabic Kufi',serif !important; 
+  font-size: 21px; 
+  font-weight: normal; 
+  margin-right: 5px;
+  background-color: transparent; 
+}
+.AFPanelBoxContentCoreDefault:alias {
+padding: 20px;
+}
+ af|panelBox.announcement::content  a:first-child{
+   border-top: 0px;
+ }
+ af|panelBox.announcement::content  a
+{
+    border-top: 1px solid #F2EFF3;
+    color: #000000 !important;
+    display: block;
+    font-size: 13px !important;
+    padding: 12px 0;
+    text-decoration: none !important;
+}
+ af|panelBox.announcement::content  a span
+{
+   
+}
+  af|panelBox.announcement::content  a i 
+{
+    float: right;
+    font-size: 20px;
+    margin-left: 5px;
+    margin-top: 3px;
+}
+af|panelBox.announcement::content  a.announcementApproved i{color:#97ce68}
+af|panelBox.announcement::content  a.announcementRefused i{color:#2d3b3a}
+af|panelBox.announcement::content  a.announcementFinished i{color:#d4d4d4}
+ af|panelBox::header-center a
+{
+  color:#fff !important;
+      margin-left: 10px;
+      cursor:pointer ;
+}
+
+ af|panelBox::header-center a span
+{
+  color:#fff !important;
+       
+}
+  /*  /panelBox*/
+  
+  
+  /*table*/
+   
+af|table table {
+
+ /**/ width: 100% !important; 
+  
+  border: 0; 
+  border-color: transparent; 
+  background-color: transparent; 
+ } 
+ 
+af|table af|column::column-header-cell{
+ padding: 10px 2px !important;/**/
+  background-color:#ffffff;
+ color:#3f3f3f;
+ font-size:15px;
+  border-left:1px solid #f0efef !important;
+  border-right:1px solid #f0efef !important;
+  border-bottom-color:#f0efef  ;
+ 
+ }
+af|table af|column::data-cell{
+ background-color:#fafafa;
+ border:1px solid #f0efef !important;
+ color:#3f3f3f;
+ font-size:12px !important;
+ font-family: 'Droid Arabic Kufi',serif !important;
+ padding: 10px 2px !important;/**/
+  }
+af|table::data-row:selected af|column::data-cell,
+af|table af|column::data-cell:selected,af|table::data-row:hover af|column::data-cell {
+  background-color: #fff !important;
+    color: #279736; 
+    
+}
+
+ .AFTableCellFooterBackground:alias td{
+ background-color:#6bcbca !important;
+ }
+af|table
+{
+/*right: -20px; width: 1192px !important;*/
+  border: 0; 
+  border-color: transparent; 
+}
+ af|table > div{
+  border: 0 none;
+   width: 98.1%;
+ }
+ 
+ af|column::column-header-table {
+ 
+ background-image:none;
+}
+af|column::column-filter-cell
+{
+  background-color: #eeebeb; 
+  padding:5px 2px  ;/**/
+  border:1px solid #F0EFEF;
+}
+
+ 
+  /*  /table*/
+  
+  
+  
+  /*form*/
+
+
+
+
+
+
+af|inputText::content,af|inputColor::content,af|inputDate::content,af|inputFile::content,af|inputListOfValues::content,af|inputComboboxListOfValues::content ,af|inputNumberSpinbox::content                                   
+{
+  background-image: none; 
+  background-color: #ffffff;
+  border:1px solid #d8d5d5 !important;
+  font-family: inherit; 
+  padding:2px 5px;
+  height:25px;
+  
+}
+af|panelBox af|inputText::content,af|panelBox af|inputColor::content,af|panelBox af|inputDate::content,af|panelBox af|inputFile::content,af|panelBox af|inputListOfValues::content,af|panelBox af|inputComboboxListOfValues::content ,af|panelBox af|inputNumberSpinbox::content,af|selectOneChoice::content
+{
+ margin: 10px 0;
+}
+af|inputComboboxListOfValues::content
+{
+  background-color: transparent; 
+}
+af|inputComboboxListOfValues::content
+{
+  background-color: transparent; 
+}
+
+ 
+af|column::column-filter-cell af|inputDate::content
+{
+
+  width: auto; 
+}
+af|inputText::label
+{
+   
+}
+.AFLabel:alias
+{
+  color: #000000;
+    font-family: inherit !important;
+    font-size: 12px;
+    font-weight: normal;
+    text-align: right !important;
+  
+}
+af|commandButton,af|goButton,af|resetButton 
+{
+  background-color: #289a37 !important; 
+   
+  color: #ffffff  !important; 
+  padding: 10px  !important;
+  font-size:14px  !important;
+  border:0  !important;
+  cursor:pointer;
+   background-image: url("images/Hail-bright-transparent-bg.png") !important;
+   background-position: -945px bottom !important;
+    background-repeat: no-repeat !important;
+    font-family: inherit !important;
+    
+} 
+ af|commandButton img,af|goButton img,af|resetButton img {display: none;}
+af|commandLink,af|goLink,af|commandImageLink
+{
+  color: #000; 
+  font: inherit;
+  font-size:12px  !important;
+}
+/**/
+
+ af|chooseColor::button{
+ width:100%;
+ text-align: right;
+ padding:5px !important;
+ background-color: transparent!important; 
+    background-image: none!important; 
+  color: #000  ; 
+    font-size:14px  !important; 
+    font-family: inherit !important; 
+     border:0  !important;
+     cursor:pointer;
+ 
+ }
+af|chooseColor
+{
+  background-color: #fff; 
+} 
+af|chooseColor::swatch-cell
+{
+ padding:5px !important;
+ text-align: right;
+ width:15px;
+ height:15px;
+} 
+
+.AFBrightBackground:alias ,
+  .AFBrightForeground:alias 
+{
+ background-color:transparent ;
+ background-image: none;
+ /*border:1px solid  #289A37 ;    */
+} 
+af|chooseColor::swatch
+{
+  height: 15px; 
+  width: 15px; 
+}
+af|chooseColor::swatch-table
+{
+  border-spacing: 4px;
+    padding-left: 0;
+    padding-top: 0;
+}
+af|chooseColor::lower-swatch-table
+{
+  margin: 0 auto;
+    padding-left: 0;
+}
+   /*  /form*/
+   
+   /*chooseDate*/
+   
+
+af|chooseDate
+{
+  margin: 0px; 
+  padding: 0px; 
+  border-color: transparent; 
+}
+ 
+af|chooseDate::today
+{ font-size: 12px;
+  font-family:tahoma; 
+  color: #fff; 
+  background-color: #000;  border:0;
+}
+af|chooseDate::week-header-cell
+{
+ background-color: #000000;
+    color: #FFFFFF;
+    font-size: 13px;
+    padding: 10px 5px;
+  
+}
+ 
+af|chooseDate::regular-day
+{
+font-family: tahoma;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 10px 0!important;
+    border:0;
+    
+}
+af|chooseDate::next-month-day,af|chooseDate::prev-month-day
+{
+  color: #808080;
+    font-family: tahoma;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 5px 0 !important; 
+}
+.AFMediumAccentBackground:alias {
+    background-color: #999 ;
+  } 
+af|chooseDate::choice-list-content
+{
+  background-image: none; 
+   border: 1px solid #D8D5D5;
+ font-family: inherit; 
+    
+}
+af|chooseDate::next-month-arrow
+{
+  background-image: url("images/previous_n.png") !important;
+}
+af|chooseDate::prev-month-arrow
+{
+  background-image: url("images/next_n.png") !important;
+}
+af|outputText
+{
+  font-family: inherit; 
+  font-size: 12px; 
+}
+af|activeOutputText
+{
+  color: #000000; 
+  font-size: 12px;
+  font-family: inherit; 
+   
+}
+af|outputLabel
+{
+  font: inherit; 
+  font-size: 12px;
+}
+af|outputFormatted
+{
+  font-family: inherit; 
+  font-size: 12px; 
+  color: #000000; 
+}
+.AFDefaultFontFamily:alias
+{
+  font-family: inherit; 
+  font-size: 12px; 
+   
+}
+af|inputRangeSlider::range {
+  background-color: #289A37 !important;
+  background-image: none;
+  
+}
+af|selectBooleanCheckbox::content
+{
+  color: #000; 
+  font-size: 12px; 
+ 
+}
+af|inputComboboxListOfValues::container
+{
+  background-image: none; 
+  font-size: 12px; 
+  font: inherit; 
+  border: none medium; 
+  background-color: transparent;
+}
+af|inputComboboxListOfValues::dropdown-cell
+{
+  background-image: none; 
+  border: 0; 
+  background-color: transparent; 
+}
+af|inputComboboxListOfValues::content
+{
+   background-color: #fff;
+}
+af|selectBooleanRadio::content
+{
+  font-size: 12px; 
+}
+af|selectOneRadio::content
+{
+  font-size: 12px; 
+}
+af|richTextEditor::content-input
+{
+  background-image: none; 
+  border: 1px solid #D8D5D5 !important;
+  padding: 5px;
+  background-color: #fff;
+}
+ 
+ 
+.x7l:hover,.x7k:hover,.x7j:hover
+{
+  background-color: #000 !important; 
+}
+
+
+
+
+
+
+
+ 
+.AFButtonBackgroundHover:alias,.AFButtonBackgroundActive:alias,.AFButtonBackground:alias,.AFButtonBackgroundFocus:alias
+{
+  background-image: none; 
+  background-color: transparent; 
+  border:0px;
+  cursor:pointer ;
+}
+ 
+ 
+ 
+af|panelCollection
+{
+  border: 0px; 
+  height: 50em; 
+ 
+  
+  
+}
+af|panelCollection af|table{
+border: 0px; 
+}
+ 
+af|panelCollection::freeze-disabled-icon
+{
+  content: url(/afr/freeze_dis.png); 
+}
+ 
+.AFTableCellFooterBackground:alias
+{
+  background-color:#626863; 
+  color:#fff;
+  
+  border:1px solid #F0EFEF !important;
+  
+}
+ 
+ 
+ 
+ 
+ 
+af|panelWindow::header-start,
+af|dialog::header-start{
+background-image: none;
+background-color: #fff;
+ }
+af|panelWindow::header-end,
+af|dialog::header-end{
+background-image: none;
+background-color: #fff;
+ }
+  
+af|panelWindow::header,
+af|dialog::header{
+background-image: none;
+background-color: #fff;
+}
+
+
+
+af|panelWindow::footer-start,
+af|dialog::footer-start{
+background-image: none;
+background-color: #fff;
+ }
+af|panelWindow::footer-end,
+af|dialog::footer-end{
+background-image: none;
+background-color: #fff;
+ }
+  
+af|panelWindow::footer,
+af|dialog::footer{
+background-image: none;
+background-color: #fff;
+}
+ 
+ 
+ 
+ af|panelWindow::content-start,
+af|dialog::content-start {
+ background-image: none;
+ background-color: #fff;
+ border:0px;
+}
+ af|panelWindow::content-end,
+af|dialog::content-end {
+ background-image: none;
+ background-color: #fff;
+ border:0px;
+}
+af|panelWindow::content,
+af|dialog::content {
+ background-image: none;
+ background-color: #fff;
+}
+af|panelWindow,
+af|dialog{
+padding: 20px;
+background-color: #fff;
+}
+
+af|panelWindow::title,
+af|dialog::title{
+padding: 5px;
+color:#333;
+}
+ .AFDarkBackground:alias {
+    background-color: #333;
+  }
+  .AFDarkForeground:alias {
+    color: #333;
+  }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+/**/
+af|panelTabbed::header
+{
+  
+    
+}
+af|panelTabbed::header-center
+{
+  
+}
+
+af|panelTabbed::header-end
+{
+  
+}
+
+
+
+af|panelTabbed::header-start
+{
+  
+}
+
+
+
+af|panelTabbed::tab
+{
+  
+   
+  
+  margin-left: 0;
+}
+af|panelTabbed::tab-content,af|panelTabbed::tab-end,af|panelTabbed::tab-start
+{
+ /* background-image: url("images/t3_above_mid_n.png") !important;*/
+  background:#000 !important;
+}
+ af|panelTabbed::tab-content a{
+ color:#fff !important;
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+af|panelTabbed::tab:selected af|panelTabbed::tab-content,af|panelTabbed::tab:selected af|panelTabbed::tab-start,af|panelTabbed::tab:selected af|panelTabbed::tab-end
+{
+  /*background-image: url("images/t3_above_mid_a.png") !important;*/
+  background:#fff !important;
+  
+  
+}
+af|panelTabbed::tab:selected af|panelTabbed::tab-content a{
+ color:#000 !important;
+}
+
+af|panelTabbed::header-start {
+  top:3px !important;
+}
+
+af|panelTabbed::header-center {
+  top:3px !important;
+}
+af|panelTabbed::header-end {
+ top:3px !important;
+}
+
+
+
+
+.AFFormComponentOutlineError:alias
+{
+  border: 1px solid red !important;
+}
+ 
+.AFTableCellFooterBorder:alias
+{
+  border: inherit; 
+}
+.x107 .xmd{
+border-left: 0 none;
+    border-right: 0 none;
+}
